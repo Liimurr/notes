@@ -11,6 +11,10 @@ This should display some tabs
 
       Pears are green.
 
+      .. code-block:: python
+
+         print("Hello, world!")
+
    .. tab:: Oranges
 
       Oranges are orange.

@@ -21,6 +21,20 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 | 4    |  No    |
 
 
+## Tabs
+.. tabs::
+
+   .. tab:: Apples
+
+      Apples are green, or sometimes red.
+
+   .. tab:: Pears
+
+      Pears are green.
+
+   .. tab:: Oranges
+
+      Oranges are orange.
 
 ## Code blocks
 

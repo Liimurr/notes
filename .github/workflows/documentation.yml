@@ -13,8 +13,7 @@ jobs:
       - uses: actions/setup-python@v3
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx-design sphinx-tabs myst_parser nbsphinx
-          pip install sphinxawesome-theme==3.3.7
+          pip install sphinx sphinx-design sphinxawesome-theme sphinx-tabs myst_parser nbsphinx
           sudo apt-get install -y pandoc 
       - name: Sphinx build
         run: |

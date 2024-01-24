@@ -15,3 +15,4 @@ Welcome to Example's documentation!
    tabs-test.rst
    some-feature.md
    another-feature.md
+   myst-test.md

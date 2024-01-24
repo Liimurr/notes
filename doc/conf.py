@@ -17,7 +17,6 @@ release = '0.1'
 
 extensions = [
   'myst_parser',
-  'sphinxawesome_theme.highlighting',
   'sphinx_design',
   'nbsphinx',
   'sphinx_tabs.tabs'
@@ -31,5 +30,5 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "sphinxawesome_theme"
+html_theme = "pydata_sphinx_theme"
 html_static_path = ['_static']

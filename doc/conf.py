@@ -18,9 +18,10 @@ release = '0.1'
 extensions = [
   'myst_parser',
   'sphinxawesome_theme.highlighting',
-  'sphinx_tabs.tabs'
+  'sphinx_design',
+  'nbsphinx'
 ]
-
+myst_enable_extensions = ["colon_fence"]
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 

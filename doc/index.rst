@@ -10,7 +10,5 @@ Welcome to Example's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   some-feature.md
-   another-feature.md
-   tabs-test.rst
-   myst-test.md
+   Vagrant.Build-Base Box.rst
+   Test.ipynb

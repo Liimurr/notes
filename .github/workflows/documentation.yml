@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: docker://pandoc/latex
       - uses: actions/setup-python@v3
       - name: Install dependencies
         run: |
-          pip install sphinx sphinxawesome-theme sphinx-tabs myst_parser nbsphinx
+          pip install sphinx sphinxawesome-theme sphinx-design sphinx-tabs myst_parser nbsphinx
       - name: Sphinx build
         run: |
           sphinx-build doc _build

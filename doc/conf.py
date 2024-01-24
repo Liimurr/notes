@@ -19,8 +19,10 @@ extensions = [
   'myst_parser',
   'sphinxawesome_theme.highlighting',
   'sphinx_design',
-  'nbsphinx'
+  'nbsphinx',
+  'sphinx_tabs.tabs'
 ]
+source_suffix = [".rst", ".md"]
 myst_enable_extensions = ["colon_fence"]
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

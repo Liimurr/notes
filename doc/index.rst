@@ -12,3 +12,6 @@ Welcome to Example's documentation!
 
    Vagrant.Build-Base Box.rst
    Test.ipynb
+   tabs-test.rst
+   some-feature.md
+   another-feature.md

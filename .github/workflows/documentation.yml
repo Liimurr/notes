@@ -14,8 +14,8 @@ jobs:
       - name: Install dependencies
         run: |
           pip install sphinx sphinxawesome-theme sphinx-design sphinx-tabs myst_parser nbsphinx
+          sudo apt-get install -y pandoc 
       - name: Sphinx build
-        uses: docker://pandoc/latex
         run: |
           sphinx-build doc _build
       - name: Deploy to GitHub Pages

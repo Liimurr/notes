@@ -19,7 +19,8 @@ extensions = [
   'myst_parser',
   'sphinx_design',
   'nbsphinx',
-  'sphinx_tabs.tabs'
+  'sphinx_tabs.tabs',
+  'sphinx_copybutton'
 ]
 source_suffix = [".rst", ".md"]
 myst_enable_extensions = ["colon_fence"]

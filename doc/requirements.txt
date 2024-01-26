@@ -4,3 +4,4 @@ sphinx-tabs
 myst_parser
 nbsphinx
 sphinx-copybutton
+sphinx-rtd-theme

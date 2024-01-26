@@ -8,18 +8,25 @@ Prerequisites
 
    .. tab-item:: Provider: VMWare
 
-      .. card:: Install Vagrant VMWare Utility and Plugin
+      .. card::
 
-         - Install Vagrant VMWare Utility [1]_
-         - ``vagrant plugin install vagrant-vmware-desktop`` [2]_
+         **Install:** `Vagrant VMWare Utility <https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility>`_
+
+         **Install:** Vagrant Plugin [2]_
+
+            .. code-block:: powershell
+
+               vagrant plugin install vagrant-vmware-desktop 
 
    .. tab-item:: Provider: VirtualBox
 
-      .. card:: Disable Hyper-V [3]_
-            
-         .. code-block:: powershell
+      .. card::
          
-            Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+         **Disable:** Hyper-V [3]_
+
+            .. code-block:: powershell
+
+               Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 
 Install SSH Server on Guest VM
 ------------------------------
@@ -42,18 +49,30 @@ Install SSH Server on Guest VM
 
             .. tab-item:: Ventura
 
-               - **Enable:** System Settings **→** Sharing **→** Remote Login
-               - **Disable:** System Settings **→** Display Energy **→** Sleeping when the display is off
-               - **Enable:** System Settings **→** Sharing **→** File Sharing
+               .. list-table::
+                  
+                  * - **Enable**  
+                    - ``System Settings`` → ``Sharing`` → ``File Sharing``
+                  * - **Enable**  
+                    - ``System Settings`` → ``Sharing`` → ``Remote Login``
+                  * - **Disable** 
+                    - ``System Settings`` → ``Display Energy`` → ``Sleeping when the display is off``
 
             .. tab-item:: Monterey
 
-               - **Enable:** System Prefferences **→** Sharing **→** Remote Login
-               - **Enable:** System Prefferences **→** Energy Saver **→** Prevent your Mac from automatically sleeping when the display is off
-               - **Enable:** System Prefferences **→** File Sharing 
-               - **Enable:** System Prefferences **→** File Sharing **→** vagrant's Public Folder **→** Users **→** Everyone **→** Read & Write
+               .. list-table::
+                  
+                  * - **Enable**
+                    - ``System Prefferences`` → ``Sharing`` → ``Remote Login``
+                  * - **Enable** 
+                    - ``System Prefferences`` → ``Energy Saver`` → ``Prevent your Mac from automatically sleeping when the display is off``
+                  * - **Enable**
+                    - ``System Prefferences`` → ``File Sharing``
+                  * - **Enable**
+                    - ``System Prefferences`` → ``File Sharing`` → ``vagrant's Public Folder`` → ``Users`` → ``Everyone`` → ``Read & Write``
 
-         .. code-block:: shell
+         .. code-block:: bash
+            :linenos:
 
             sudo chmod go-w ~/
             sudo mkdir ~/.ssh
@@ -78,29 +97,34 @@ Test Host to Guest SSH Connection
 
       .. card::
 
-         .. card:: **Go To:** VirtualBox **→** <Virtual Machine> **→** Settings **→** Network **→** Advanced **→** Port Forwarding | **Add Rule:**
+         **GoTo:** 
+            
+            VirtualBox > Your Virtual Machine > Settings > Network > Advanced > Port Forwarding
+
+         **Add-Rule:**
 
             .. list-table::
                :header-rows: 0
 
-               * - Name
+               * - **Name**
                  - SSH
-               * - Protocol
+               * - **Protocol**
                  - TCP
-               * - Host Port
+               * - **Host Port**
                  - 2222
-               * - Guest Port
+               * - **Guest Port**
                  - 22
 
-         .. code-block:: shell 
-         
-            ssh vagrant@localhost -p 2222
+         **Test-Connection:**
+
+            .. code-block:: shell 
+            
+               ssh vagrant@localhost -p 2222
 
       .. note::
 
          - The Host Port can be any port you wish to use on your host machine. The Guest Port must be 22, as that is the port the SSH server on the guest machine is listening on.
          - The Name field is arbitrary, but it is recommended to use a name that describes the purpose of the rule.
 
-.. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
 .. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
 .. [3] https://developer.hashicorp.com/vagrant/docs/installation#windows-virtualbox-and-hyper-v

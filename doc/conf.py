@@ -20,19 +20,21 @@ extensions = [
   'sphinx_design',
   'nbsphinx',
   'sphinx_tabs.tabs',
-  'sphinx_copybutton'
+  'sphinx_copybutton',
+  'sphinx.ext.graphviz'
 ]
 source_suffix = [".rst", ".md"]
 myst_enable_extensions = ["colon_fence"]
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
+graphviz_output_format = 'svg'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "pydata_sphinx_theme"
+html_theme = "sphinx_rtd_theme"
 html_display_options = {
   'display_version': False,
   'collapse_navigation': True
 }
+html_static_path = ['_static']

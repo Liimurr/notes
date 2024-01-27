@@ -51,12 +51,9 @@ Install SSH Server on Guest VM
 
                .. list-table::
                   
-                  * - **Enable**  
-                    - ``System Settings`` → ``Sharing`` → ``File Sharing``
-                  * - **Enable**  
-                    - ``System Settings`` → ``Sharing`` → ``Remote Login``
-                  * - **Disable** 
-                    - ``System Settings`` → ``Display Energy`` → ``Sleeping when the display is off``
+                  * Enable **System Settings** \| **Sharing** \| **File Sharing**
+                  * Enable **System Settings** \| **Sharing** \| **Remote Login**
+                  * Disable **System Settings** \| **Display Energy** \| **Sleeping when the display is off**
 
             .. tab-item:: Monterey
 
@@ -97,29 +94,32 @@ Test Host to Guest SSH Connection
 
       .. card::
 
-         **GoTo:** 
-            
-            VirtualBox > Your Virtual Machine > Settings > Network > Advanced > Port Forwarding
+         GoTo
+         ++++ 
 
-         **Add-Rule:**
+         VirtualBox > Your Virtual Machine > Settings > Network > Advanced > Port Forwarding
 
-            .. list-table::
-               :header-rows: 0
+         Add-Rule
+         ++++++++
 
-               * - **Name**
-                 - SSH
-               * - **Protocol**
-                 - TCP
-               * - **Host Port**
-                 - 2222
-               * - **Guest Port**
-                 - 22
+         .. list-table::
+            :header-rows: 0
 
-         **Test-Connection:**
+            * - **Name**
+              - SSH
+            * - **Protocol**
+              - TCP
+            * - **Host Port**
+              - 2222
+            * - **Guest Port**
+              - 22
 
-            .. code-block:: shell 
-            
-               ssh vagrant@localhost -p 2222
+         Test-Connection
+         +++++++++++++++
+
+         .. code-block:: shell 
+         
+            ssh vagrant@localhost -p 2222
 
       .. note::
 

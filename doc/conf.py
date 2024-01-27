@@ -20,21 +20,29 @@ extensions = [
   'sphinx_design',
   'nbsphinx',
   'sphinx_tabs.tabs',
-  'sphinx_copybutton',
-  'sphinx.ext.graphviz'
+  # 'sphinx_copybutton',
+  'sphinx.ext.graphviz',
+
+  # Themes
+  # ======
+  'sphinxawesome_theme',
+  'sphinxawesome_theme.highlighting'
 ]
 source_suffix = [".rst", ".md"]
 myst_enable_extensions = ["colon_fence"]
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 graphviz_output_format = 'svg'
+pygments_style = 'github-light-high-contrast'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+from dataclasses import asdict
+from sphinxawesome_theme import ThemeOptions
+html_theme = 'sphinxawesome_theme'
 
-html_theme = "sphinx_rtd_theme"
-html_display_options = {
-  'display_version': False,
-  'collapse_navigation': True
-}
-html_static_path = ['_static']
+# https://sphinxawesome.xyz/how-to/configure/#sphinxawesome_theme.ThemeOptions
+theme_options = ThemeOptions(show_nav=False)
+
+html_logo = "_static/logo.png"
+html_static_path = ['_static']  

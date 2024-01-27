@@ -93,54 +93,16 @@ Install-SSH Server on Guest VM
    .. tab-item:: GuestOS: MacOS
       :sync: macos
 
-      .. tab-set::   
-
-         .. tab-item:: Ventura   
-            :sync: ventura
-
-            .. dropdown:: Edit-System Settings
-               :open:   
-
-               .. tab-set::    
-
-                  .. tab-item:: Manual   
-
-                     - Enable **System Settings** \| **Sharing** \| **File Sharing**
-                     - Enable **System Settings** \| **Sharing** \| **Remote Login**
-                     - Disable **System Settings** \| **Display Energy** \| **Sleeping when the display is off**   
-
-                  .. tab-item:: Script   
-
-                     .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/macos.sh
-                        :language: bash
-
-         .. tab-item:: Monterey
-            :sync: monterey
-            
-            .. dropdown:: Edit-System Prefferences
-               :open:   
-
-               .. tab-set::    
-
-                  .. tab-item:: Manual   
-
-                     - Enable **System Prefferences** \| **Sharing** \| **Remote Login**
-                     - Enable **System Prefferences** \| **Energy Saver** \| **Prevent your Mac from automatically sleeping when the display is off**
-                     - Enable **System Prefferences** \| **File Sharing**
-                     - Enable **System Prefferences** \| **File Sharing** \| **vagrant's Public Folder** \| **Users** \| **Everyone** \| **Read & Write**   
-
-                  .. tab-item:: Script   
-
-                     .. code-block:: bash
-                        
-                        sudo systemsetup -setremotelogin on
-                        sudo systemsetup -setsleep off
-                        sudo systemsetup -setwakeonnetworkaccess on   
-
-      .. dropdown:: Initialize-Authorizied Keys
+      .. dropdown:: Edit-System Setup
          :open:   
          
-         .. code-block:: bash   
+         .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/macos.sh
+            :language: bash
+
+      .. dropdown:: Initialize-Authorizied Keys Directory
+         :open:   
+         
+         .. code-block:: bash
             
             sudo chmod go-w ~/
             sudo mkdir ~/.ssh
@@ -151,14 +113,20 @@ Install-SSH Server on Guest VM
    .. tab-item:: GuestOS: Windows
       :sync: windows
       
-      .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/windows.ps1
-         :language: powershell
+      .. dropdown:: Install SSH Server
+         :open:
+
+         .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/windows.ps1
+            :language: powershell
 
    .. tab-item:: GuestOS: Ubuntu
       :sync: ubuntu
 
-      .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/ubuntu.sh
-         :language: bash
+      .. dropdown:: Install SSH Server
+         :open:
+         
+         .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/ubuntu.sh
+            :language: bash
          
 Test-Host to Guest SSH Connection
 ---------------------------------

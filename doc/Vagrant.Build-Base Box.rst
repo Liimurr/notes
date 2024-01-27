@@ -162,6 +162,8 @@ Test-Host to Guest SSH Connection
 
       .. dropdown:: Test-SSH Connection
          :open:
+         
+         Make sure the VM is running, then invoke the following command on the Host machine:
 
          .. code-block:: shell 
       
@@ -170,7 +172,20 @@ Test-Host to Guest SSH Connection
    .. tab-item:: Provider: VMWare
       :sync: vmware
 
-      TODO
+      .. dropdown:: Find-Guest IP
+         :open:
+
+         1. On Guest, Goto **VMWare** \| **Your Virtual Machine** \| **Settings** \| **Network Adapter** \| **Advanced** \| **MAC Address** 
+         2. On Host, invoke ``arp -a`` and look for the MAC Address of the VM. The IP Address associated with the MAC Address is the IP Address of the Guest OS Machine.
+      
+      .. dropdown:: Test-SSH Connection
+         :open:
+
+         Make sure the VM is running, then invoke the following command on the Host machine:
+
+         .. code-block:: shell 
+      
+            ssh vagrant@<IP Address>
 
 .. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
 .. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation

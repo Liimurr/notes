@@ -3,16 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Example's documentation!
-===================================
+Liimurr's Notes
+===============
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    Vagrant.Build-Base Box.rst
-   Test.ipynb
-   tabs-test.rst
-   some-feature.md
-   another-feature.md
-   myst-test.md
+   jupyter-notebook-test.ipynb

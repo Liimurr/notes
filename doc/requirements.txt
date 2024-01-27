@@ -6,3 +6,4 @@ nbsphinx
 sphinx-copybutton
 sphinx-rtd-theme
 sphinxawesome-theme
+sphinx-book-theme

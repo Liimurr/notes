@@ -1,5 +1,5 @@
-Vagrant.Build-Base Box
-======================
+🧰Vagrant.Build-Base Box
+========================
 
 Prerequisites
 -------------
@@ -8,69 +8,125 @@ Prerequisites
 
    .. tab-item:: Provider: VMWare
 
-      .. card::
+      .. dropdown:: Install-Vagrant VMWare Utility [1]_
+         :open:
 
-         **Install:** `Vagrant VMWare Utility <https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility>`_
+         `Downloads Page <https://developer.hashicorp.com/vagrant/install/vmware>`_
 
-         **Install:** Vagrant Plugin [2]_
+      .. dropdown:: Install-Vagrant Plugin [2]_
+         :open:
+         
+         .. code-block:: powershell
 
-            .. code-block:: powershell
-
-               vagrant plugin install vagrant-vmware-desktop 
+            vagrant plugin install vagrant-vmware-desktop 
 
    .. tab-item:: Provider: VirtualBox
 
-      .. card::
-         
-         **Disable:** Hyper-V [3]_
+      .. dropdown:: Disable-HyperV [3]_
+         :open:
 
-            .. code-block:: powershell
+         .. code-block:: powershell
 
-               Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+            Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 
-Install SSH Server on Guest VM
+Initialize-VM Virtual Hardware
+------------------------------
+
+.. tab-set:: 
+
+   .. tab-item:: GuestOS: MacOS
+      
+      - 1 Processor
+
+   .. tab-item:: GuestOS: Windows
+
+      - 1+ Processors
+
+- `Dynamically Allocated 250GB HD <https://developer.hashicorp.com/vagrant/docs/boxes/base#disk-space>`_
+- `512MB of RAM <https://developer.hashicorp.com/vagrant/docs/boxes/base#memory>`_
+- `Disable Audio and USB <https://developer.hashicorp.com/vagrant/docs/boxes/base#peripherals-audio-usb-etc>`_
+
+
+Install-SSH Server on Guest VM
 ------------------------------
 
 .. tab-set::
    
    .. tab-item:: GuestOS: Windows
       
-      .. raw:: html
+      .. code-block:: powershell
 
-         <embed>
-            <script src="https://gist.github.com/Liimurr/41f9192fd2cfb4249e7a84291ff5c7b5.js"></script>
-         </embed>
+         # see: https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell#install-openssh-for-windows
+
+         # Install the OpenSSH Server
+         Add-WindowsCapability -Online -Name 'OpenSSH.Server~~~~0.0.1.0'
+
+         # Start the sshd service
+         Start-Service sshd
+
+         # OPTIONAL but recommended:
+         Set-Service -Name sshd -StartupType 'Automatic'
+
+         # Confirm the Firewall rule is configured. It should be created automatically by setup. Run the following to verify
+         if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyContinue | Select-Object Name, Enabled)) {
+           Write-Output "Firewall Rule 'OpenSSH-Server-In-TCP' does not exist, creating it..."
+           New-NetFirewallRule -Name 'OpenSSH-Server-In-TCP' -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+         } else {
+           Write-Output "Firewall rule 'OpenSSH-Server-In-TCP' has been created and exists."
+         }
 
    .. tab-item:: GuestOS: MacOS
-      
-      .. card::
+   
+      .. tab-set::   
 
-         .. tab-set::
+         .. tab-item:: Ventura   
 
-            .. tab-item:: Ventura
+            .. dropdown:: Edit-System Settings
+               :open:   
 
-               .. list-table::
-                  
-                  * Enable **System Settings** \| **Sharing** \| **File Sharing**
-                  * Enable **System Settings** \| **Sharing** \| **Remote Login**
-                  * Disable **System Settings** \| **Display Energy** \| **Sleeping when the display is off**
+               .. tab-set::    
 
-            .. tab-item:: Monterey
+                  .. tab-item:: Manual   
 
-               .. list-table::
-                  
-                  * - **Enable**
-                    - ``System Prefferences`` → ``Sharing`` → ``Remote Login``
-                  * - **Enable** 
-                    - ``System Prefferences`` → ``Energy Saver`` → ``Prevent your Mac from automatically sleeping when the display is off``
-                  * - **Enable**
-                    - ``System Prefferences`` → ``File Sharing``
-                  * - **Enable**
-                    - ``System Prefferences`` → ``File Sharing`` → ``vagrant's Public Folder`` → ``Users`` → ``Everyone`` → ``Read & Write``
+                     - Enable **System Settings** \| **Sharing** \| **File Sharing**
+                     - Enable **System Settings** \| **Sharing** \| **Remote Login**
+                     - Disable **System Settings** \| **Display Energy** \| **Sleeping when the display is off**   
 
-         .. code-block:: bash
-            :linenos:
+                  .. tab-item:: Script   
 
+                     .. code-block:: bash
+                        
+                        sudo systemsetup -setremotelogin on
+                        sudo systemsetup -setsleep off
+                        sudo systemsetup -setwakeonnetworkaccess on   
+
+         .. tab-item:: Monterey
+            
+            .. dropdown:: Edit-System Prefferences
+               :open:   
+
+               .. tab-set::    
+
+                  .. tab-item:: Manual   
+
+                     - Enable **System Prefferences** \| **Sharing** \| **Remote Login**
+                     - Enable **System Prefferences** \| **Energy Saver** \| **Prevent your Mac from automatically sleeping when the display is off**
+                     - Enable **System Prefferences** \| **File Sharing**
+                     - Enable **System Prefferences** \| **File Sharing** \| **vagrant's Public Folder** \| **Users** \| **Everyone** \| **Read & Write**   
+
+                  .. tab-item:: Script   
+
+                     .. code-block:: bash
+                        
+                        sudo systemsetup -setremotelogin on
+                        sudo systemsetup -setsleep off
+                        sudo systemsetup -setwakeonnetworkaccess on   
+
+      .. dropdown:: Initialize-Authorizied Keys
+         :open:   
+         
+         .. code-block:: bash   
+            
             sudo chmod go-w ~/
             sudo mkdir ~/.ssh
             sudo chmod 700 ~/.ssh
@@ -79,11 +135,11 @@ Install SSH Server on Guest VM
 
    .. tab-item:: GuestOS: Ubuntu
 
-      .. raw:: html
-
-         <embed>
-            <script src="https://gist.github.com/Liimurr/454879c5f60ea31ea9e43c37acff0286.js"></script>
-         </embed>
+      .. code-block:: bash
+            
+         sudo apt-get install openssh-server
+         sudo systemctl enable ssh
+         sudo systemctl start ssh
          
 Test Host to Guest SSH Connection
 ---------------------------------
@@ -92,39 +148,38 @@ Test Host to Guest SSH Connection
 
    .. tab-item:: Provider: VirtualBox
 
-      .. card::
+      .. dropdown:: Register-SSH Port Forwarding Rule
+         :open:
 
-         GoTo
-         ++++ 
+         1. GoTo **VirtualBox** \| **Your Virtual Machine** \| **Settings** \| **Network** \| **Advanced** \| **Port Forwarding**
 
-         VirtualBox > Your Virtual Machine > Settings > Network > Advanced > Port Forwarding
+         2. Add-Rule
 
-         Add-Rule
-         ++++++++
+            .. list-table::
+               :header-rows: 0
+      
+               * - **Name**
+                 - SSH
+               * - **Protocol**
+                 - TCP
+               * - **Host Port**
+                 - 2222
+               * - **Guest Port**
+                 - 22
+            
+            .. note::
 
-         .. list-table::
-            :header-rows: 0
+               - The Host Port can be any port you wish to use on your host machine. The Guest Port must be 22, as that is the port the SSH server on the guest machine is listening on.
+               - The Name field is arbitrary, but it is recommended to use a name that describes the purpose of the rule.
 
-            * - **Name**
-              - SSH
-            * - **Protocol**
-              - TCP
-            * - **Host Port**
-              - 2222
-            * - **Guest Port**
-              - 22
-
-         Test-Connection
-         +++++++++++++++
+      .. dropdown:: Test-SSH Connection
+         :open:
 
          .. code-block:: shell 
-         
+      
             ssh vagrant@localhost -p 2222
 
-      .. note::
 
-         - The Host Port can be any port you wish to use on your host machine. The Guest Port must be 22, as that is the port the SSH server on the guest machine is listening on.
-         - The Name field is arbitrary, but it is recommended to use a name that describes the purpose of the rule.
-
+.. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
 .. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
 .. [3] https://developer.hashicorp.com/vagrant/docs/installation#windows-virtualbox-and-hyper-v

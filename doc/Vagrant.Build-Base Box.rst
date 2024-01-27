@@ -1,6 +1,15 @@
 Vagrant.Build-Base Box
 ========================
 
+Brief
+-----
+1. Install Vagrant
+2. Install VM Provider
+3. Initialize VM Virtual Hardware
+4. Install Operating System
+5. Install SSH Server on Guest VM
+6. Test Host to Guest SSH Connection
+
 Prerequisites
 -------------
 
@@ -190,3 +199,8 @@ Test-Host to Guest SSH Connection
 .. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
 .. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
 .. [3] https://developer.hashicorp.com/vagrant/docs/installation#windows-virtualbox-and-hyper-v
+
+Next steps
+----------
+
+- Vagrant.Export-VM as a Vagrant Box

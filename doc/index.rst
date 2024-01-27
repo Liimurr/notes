@@ -11,4 +11,5 @@ Liimurr's Notes
    :caption: Contents:
 
    Vagrant.Build-Base Box.rst
+   Add-Submodule to Github Actions Checkout.rst
    jupyter-notebook-test.ipynb

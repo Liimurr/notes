@@ -6,7 +6,23 @@ Prerequisites
 
 .. tab-set:: 
 
+   .. tab-item:: Provider: VirtualBox
+      :sync: virtualbox
+
+      .. dropdown:: Disable-HyperV [3]_
+         :open:
+
+         .. code-block:: powershell
+
+            Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+
    .. tab-item:: Provider: VMWare
+      :sync: vmware
+
+      .. warning:: 
+         
+         For Vagrant boxes, GuestOS: Windows 11 and Provider: VMWare Workstation 17 are incompatible.
+         Vagrant has no support for TPM 2.0 encryption yet, and VMWare Workstation 17 requires it for Windows 11.
 
       .. dropdown:: Install-Vagrant VMWare Utility [1]_
          :open:
@@ -20,66 +36,67 @@ Prerequisites
 
             vagrant plugin install vagrant-vmware-desktop 
 
-   .. tab-item:: Provider: VirtualBox
-
-      .. dropdown:: Disable-HyperV [3]_
-         :open:
-
-         .. code-block:: powershell
-
-            Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
-
 Initialize-VM Virtual Hardware
 ------------------------------
 
 .. tab-set:: 
 
    .. tab-item:: GuestOS: MacOS
+      :sync: macos
       
       - 1 Processor
+      - 2048MB+ of RAM
 
    .. tab-item:: GuestOS: Windows
+      :sync: windows
 
       - 1+ Processors
+      - `4096MB+ of RAM <https://support.microsoft.com/en-us/windows/windows-11-system-requirements-86c11283-ea52-4782-9efd-7674389a7ba3>`_
+   
+   .. tab-item:: GuestOS: Ubuntu
+      :sync: ubuntu
+
+      - 1+ Processors
+      - `512MB+ of RAM <https://developer.hashicorp.com/vagrant/docs/boxes/base#memory>`_
 
 - `Dynamically Allocated 250GB HD <https://developer.hashicorp.com/vagrant/docs/boxes/base#disk-space>`_
-- `512MB of RAM <https://developer.hashicorp.com/vagrant/docs/boxes/base#memory>`_
 - `Disable Audio and USB <https://developer.hashicorp.com/vagrant/docs/boxes/base#peripherals-audio-usb-etc>`_
 
+Install-Operating System
+------------------------
+
+.. tab-set:: 
+
+   .. tab-item:: GuestOS: MacOS
+      :sync: macos
+
+      Create a local user account with the username ``vagrant`` and password ``vagrant``
+      
+   .. tab-item:: GuestOS: Windows
+      :sync: windows
+
+      1. During installation, at "select a country" press ``Shift+F10`` to open command prompt, then enter  ``OOBE\BYPASSNRO``
+      2. After restart, press ``Shift+F10`` to open command prompt, then enter ``ipconfig /release``
+      3. Continue installation without internet connection
+      4. Create a local user account with the username ``vagrant`` and password ``vagrant`` (`ref <https://developer.hashicorp.com/vagrant/docs/boxes/base#vagrant-user>`_)
+
+   .. tab-item:: GuestOS: Ubuntu
+      :sync: ubuntu
+
+      Create a local user account with the username ``vagrant`` and password ``vagrant`` 
 
 Install-SSH Server on Guest VM
 ------------------------------
 
 .. tab-set::
    
-   .. tab-item:: GuestOS: Windows
-      
-      .. code-block:: powershell
-
-         # see: https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell#install-openssh-for-windows
-
-         # Install the OpenSSH Server
-         Add-WindowsCapability -Online -Name 'OpenSSH.Server~~~~0.0.1.0'
-
-         # Start the sshd service
-         Start-Service sshd
-
-         # OPTIONAL but recommended:
-         Set-Service -Name sshd -StartupType 'Automatic'
-
-         # Confirm the Firewall rule is configured. It should be created automatically by setup. Run the following to verify
-         if (!(Get-NetFirewallRule -Name "OpenSSH-Server-In-TCP" -ErrorAction SilentlyContinue | Select-Object Name, Enabled)) {
-           Write-Output "Firewall Rule 'OpenSSH-Server-In-TCP' does not exist, creating it..."
-           New-NetFirewallRule -Name 'OpenSSH-Server-In-TCP' -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
-         } else {
-           Write-Output "Firewall rule 'OpenSSH-Server-In-TCP' has been created and exists."
-         }
-
    .. tab-item:: GuestOS: MacOS
-   
+      :sync: macos
+
       .. tab-set::   
 
          .. tab-item:: Ventura   
+            :sync: ventura
 
             .. dropdown:: Edit-System Settings
                :open:   
@@ -94,13 +111,11 @@ Install-SSH Server on Guest VM
 
                   .. tab-item:: Script   
 
-                     .. code-block:: bash
-                        
-                        sudo systemsetup -setremotelogin on
-                        sudo systemsetup -setsleep off
-                        sudo systemsetup -setwakeonnetworkaccess on   
+                     .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/macos.sh
+                        :language: bash
 
          .. tab-item:: Monterey
+            :sync: monterey
             
             .. dropdown:: Edit-System Prefferences
                :open:   
@@ -133,20 +148,25 @@ Install-SSH Server on Guest VM
             sudo touch ~/.ssh/authorized_keys
             sudo chmod 600 ~/.ssh/authorized_keys
 
-   .. tab-item:: GuestOS: Ubuntu
+   .. tab-item:: GuestOS: Windows
+      :sync: windows
+      
+      .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/windows.ps1
+         :language: powershell
 
-      .. code-block:: bash
-            
-         sudo apt-get install openssh-server
-         sudo systemctl enable ssh
-         sudo systemctl start ssh
+   .. tab-item:: GuestOS: Ubuntu
+      :sync: ubuntu
+
+      .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/ubuntu.sh
+         :language: bash
          
-Test Host to Guest SSH Connection
+Test-Host to Guest SSH Connection
 ---------------------------------
 
 .. tab-set::
 
    .. tab-item:: Provider: VirtualBox
+      :sync: virtualbox
 
       .. dropdown:: Register-SSH Port Forwarding Rule
          :open:
@@ -179,6 +199,10 @@ Test Host to Guest SSH Connection
       
             ssh vagrant@localhost -p 2222
 
+   .. tab-item:: Provider: VMWare
+      :sync: vmware
+
+      TODO
 
 .. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
 .. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation

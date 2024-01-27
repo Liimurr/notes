@@ -1,1 +1,3 @@
-Here can be the source code files for your project ...
+# Notes
+
+A collection of source code for refference in the [doc](../doc/) directory

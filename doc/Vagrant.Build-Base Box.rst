@@ -1,4 +1,4 @@
-🧰Vagrant.Build-Base Box
+Vagrant.Build-Base Box
 ========================
 
 Prerequisites

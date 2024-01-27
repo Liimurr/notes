@@ -22,6 +22,7 @@ Prerequisites
          :open:
 
          .. code-block:: powershell
+            :caption: PowerShell
 
             Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 
@@ -42,6 +43,7 @@ Prerequisites
          :open:
          
          .. code-block:: powershell
+            :caption: PowerShell
 
             vagrant plugin install vagrant-vmware-desktop 
 
@@ -70,6 +72,44 @@ Initialize-VM Virtual Hardware
 
 - `Dynamically Allocated 250GB HD <https://developer.hashicorp.com/vagrant/docs/boxes/base#disk-space>`_
 - `Disable Audio and USB <https://developer.hashicorp.com/vagrant/docs/boxes/base#peripherals-audio-usb-etc>`_
+
+.. tab-set:: 
+
+   .. tab-item:: GuestOS: MacOS
+      :sync: macos
+
+      .. tab-set:: 
+
+         .. tab-item:: Provider: VirtualBox
+            :sync: virtualbox
+
+            .. code-block:: powershell
+               :caption: PowerShell
+
+               $VMName = 'virtualbox-vagrant-macos-12'
+               $VBoxManage = Join-Path ([Environment]::GetFolderPath('ProgramFiles')) Oracle VirtualBox VBoxManage.exe
+               & $VBoxManage modifyvm $VMName --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
+               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac19,3"
+               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
+               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple"
+               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
+               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+               & $VBoxManage modifyvm $VMName --cpu-profile "Intel Core i7-2635QM"
+               
+         .. tab-item:: Provider: VMWare
+            :sync: vmware
+
+            _
+
+   .. tab-item:: GuestOS: Windows
+      :sync: windows
+      
+      _
+
+   .. tab-item:: GuestOS: Ubuntu
+      :sync: ubuntu
+
+      _
 
 Install-Operating System
 ------------------------
@@ -106,12 +146,14 @@ Install-SSH Server on Guest VM
          :open:   
          
          .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/macos.sh
-            :language: bash
+            :language: shell
+            :caption: shell
 
       .. dropdown:: Initialize-Authorizied Keys Directory
          :open:   
          
-         .. code-block:: bash
+         .. code-block:: shell
+            :caption: shell
             
             sudo chmod go-w ~/
             sudo mkdir ~/.ssh
@@ -127,6 +169,7 @@ Install-SSH Server on Guest VM
 
          .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/windows.ps1
             :language: powershell
+            :caption: PowerShell
 
    .. tab-item:: GuestOS: Ubuntu
       :sync: ubuntu
@@ -135,7 +178,8 @@ Install-SSH Server on Guest VM
          :open:
          
          .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/ubuntu.sh
-            :language: bash
+            :language: shell
+            :caption: shell
          
 Test-Host to Guest SSH Connection
 ---------------------------------
@@ -175,6 +219,7 @@ Test-Host to Guest SSH Connection
          Make sure the VM is running, then invoke the following command on the Host machine:
 
          .. code-block:: shell 
+            :caption: shell / batch
       
             ssh vagrant@localhost -p 2222
 
@@ -192,7 +237,8 @@ Test-Host to Guest SSH Connection
 
          Make sure the VM is running, then invoke the following command on the Host machine:
 
-         .. code-block:: shell 
+         .. code-block:: shell
+            :caption: shell / batch
       
             ssh vagrant@<IP Address>
 

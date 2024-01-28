@@ -40,7 +40,7 @@ Procedure
            - <private ssh key>
 
 
-.. dropdown:: Add-SSH Key to 'checkout' Github Action
+.. dropdown:: Add-SSH Key and Submodules to 'checkout' Github Action
    :open:
 
    .. code-block:: yaml

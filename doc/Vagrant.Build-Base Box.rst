@@ -6,7 +6,7 @@ Brief
 1. Install Vagrant
 2. Install VM Provider
 3. Initialize VM Virtual Hardware
-4. Install Operating System
+4. Install Guest Operating System
 5. Install SSH Server on Guest VM
 6. Test Host to Guest SSH Connection
 
@@ -47,8 +47,11 @@ Prerequisites
 
             vagrant plugin install vagrant-vmware-desktop 
 
+Procedure
+---------
+
 Initialize-VM Virtual Hardware
-------------------------------
+++++++++++++++++++++++++++++++
 
 .. tab-set:: 
 
@@ -111,8 +114,8 @@ Initialize-VM Virtual Hardware
 
       _
 
-Install-Operating System
-------------------------
+Install-Guest Operating System
+++++++++++++++++++++++++++++++
 
 .. tab-set:: 
 
@@ -135,7 +138,7 @@ Install-Operating System
       Create a local user account with the username ``vagrant`` and password ``vagrant`` 
 
 Install-SSH Server on Guest VM
-------------------------------
+++++++++++++++++++++++++++++++
 
 .. tab-set::
    
@@ -182,7 +185,7 @@ Install-SSH Server on Guest VM
             :caption: shell
          
 Test-Host to Guest SSH Connection
----------------------------------
+++++++++++++++++++++++++++++++++++
 
 .. tab-set::
 
@@ -219,7 +222,7 @@ Test-Host to Guest SSH Connection
          Make sure the VM is running, then invoke the following command on the Host machine:
 
          .. code-block:: shell 
-            :caption: shell / batch
+            :caption: shell / cmd
       
             ssh vagrant@localhost -p 2222
 
@@ -238,7 +241,7 @@ Test-Host to Guest SSH Connection
          Make sure the VM is running, then invoke the following command on the Host machine:
 
          .. code-block:: shell
-            :caption: shell / batch
+            :caption: shell / cmd
       
             ssh vagrant@<IP Address>
 
@@ -249,4 +252,4 @@ Test-Host to Guest SSH Connection
 Next steps
 ----------
 
-- Vagrant.Export-VM as a Vagrant Box
+:doc:`/Vagrant.Export-VM as a Vagrant Box`

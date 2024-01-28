@@ -1,8 +1,17 @@
 Vagrant.Export-VM as a Vagrant Box
 ==================================
 
+Brief
+-----
+1. Convert the VM to a vagrant ``.box`` file
+2. Add the box file to vagrant
+3. Test the box file with vagrant by provisioning it in a new directory
+
+Procedure
+---------
+
 VM.ConvertTo-Box File
----------------------
++++++++++++++++++++++
 
 .. tab-set:: 
 
@@ -77,21 +86,16 @@ VM.ConvertTo-Box File
       .. code-block:: powershell
          :caption: PowerShell (Usage)
 
-         & (Join-Path '.' 'script.ps1') -VMDir (Join-Path 'E:' 'assets' 'vms' 'win-11') -VMName 'win-11' -Provider 'vmware_desktop'
-
-      .. seealso:: 
-         
-         - https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#optimizing-box-size
-         - https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#contents
+         & (Join-Path '.' 'script.ps1') -VMDir (Join-Path 'E:' 'assets' 'vms' 'win-11') -BoxDir (Join-Path 'E:' 'assets' 'vagrant' 'boxes') -VMName 'win-11' -VMProvider 'vmware_desktop'
 
 Box.Initialize-Vagrant
-----------------------
+++++++++++++++++++++++
 
 .. code-block:: shell
-
+   :caption: shell / cmd
+   
    vagrant box add --name my-box /path/to/the/new.box
    vagrant init my-box
-
 
 .. tab-set::
 
@@ -103,20 +107,33 @@ Box.Initialize-Vagrant
 
          1. Copy **VirtualBox** \| <**Your VM**> \| **Settings** \| **Network** \| **Adapter 1** \| **Advanced** \| **MAC Address**
          2. Add the following to the Vagrantfile in the directory you called ``vagrant init`` in:
+            
             .. code-block:: ini
+               :caption: Vagrantfile
             
                config.vm.base_mac=<mac address>
 
-      .. dropdown:: Up the Vagrant Box
+      .. dropdown:: Provision the Vagrant Box
          :open:
 
          .. code-block:: shell
-            
+            :caption: shell / cmd
+
             vagrant up --provider virtualbox
 
    .. tab-item:: VMWare
       :sync: vmware
       
-      .. code-block:: shell
-         
-         vagrant up --provider vmware_desktop
+      .. dropdown:: Provision the Vagrant Box
+         :open:
+
+         .. code-block:: shell
+               :caption: shell / cmd
+
+               vagrant up --provider vmware_desktop
+
+See Also
+--------
+
+- https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#optimizing-box-size
+- https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#contents

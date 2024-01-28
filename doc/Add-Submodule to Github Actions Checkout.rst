@@ -15,7 +15,8 @@ Prerequisites
 
    1. 
 
-      .. code-block:: bash
+      .. code-block:: shell
+         :caption: shell / cmd
 
          ssh-keygen -t ed25519 -C "your_email@example.com"
 
@@ -27,14 +28,24 @@ Procedure
 .. dropdown:: Add-Private SSH Key to Repository Secrets
    :open:
 
-   1. Goto **Settings** \| **Secrets and Variables** \| **Actions** \| **New Repository Secret**
-   2. Add-Private SSH Key
+   Goto **Settings** \| **Secrets and Variables** \| **Actions** \| **New Repository Secret**
+
+   .. card::
+
+      .. list-table:: 
+   
+         * - **Name**
+           - SSH_KEY
+         * - **Value**
+           - <private ssh key>
+
 
 .. dropdown:: Add-SSH Key to 'checkout' Github Action
    :open:
 
    .. code-block:: yaml
       :emphasize-lines: 7-8
+      :caption: .github/workflows/<your github workflow>.yml
 
       jobs:
          docs:

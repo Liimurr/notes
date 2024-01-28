@@ -11,6 +11,6 @@ Liimurr's Notes
    :caption: Contents:
 
    Vagrant.Build-Base Box.rst
-   Vagrant.Export-VM as a Vagrant Box.rst
+   Vagrant.Export-Base Box.rst
    Add-Submodule to Github Actions Checkout.rst
    jupyter-notebook-test.ipynb

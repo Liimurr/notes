@@ -16,12 +16,14 @@ release = '0.1'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
+  'sphinx.ext.autosectionlabel',
   'myst_parser',
   'sphinx_design',
   'nbsphinx',
   'sphinx_tabs.tabs',
   'sphinx_copybutton',
-  'sphinx.ext.graphviz'
+  'sphinx.ext.graphviz',
+  'hoverxref.extension'
 ]
 source_suffix = [".rst", ".md"]
 myst_enable_extensions = ["colon_fence"]

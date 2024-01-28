@@ -1,5 +1,5 @@
-Vagrant.Export-VM as a Vagrant Box
-==================================
+Vagrant.Export-Base Box
+=======================
 
 Brief
 -----
@@ -9,6 +9,8 @@ Brief
 
 Procedure
 ---------
+
+.. _Test:
 
 VM.ConvertTo-Box File
 +++++++++++++++++++++

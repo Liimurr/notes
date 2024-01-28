@@ -1,5 +1,5 @@
 Vagrant.Build-Base Box
-========================
+======================
 
 Brief
 -----
@@ -40,7 +40,7 @@ Prerequisites
       .. dropdown:: Install-Vagrant VMWare Utility [1]_
          :open:
 
-         `Downloads Page <https://developer.hashicorp.com/vagrant/install/vmware>`_
+         `Vagrant VMWare Utility Downloads Page <https://developer.hashicorp.com/vagrant/install/vmware>`_
 
       .. dropdown:: Install-Vagrant Plugin [2]_
          :open:
@@ -248,11 +248,14 @@ Test-Host to Guest SSH Connection
       
             ssh vagrant@<IP Address>
 
-.. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
-.. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
-.. [3] https://developer.hashicorp.com/vagrant/docs/installation#windows-virtualbox-and-hyper-v
-
 Next steps
 ----------
 
-:doc:`/Vagrant.Export-VM as a Vagrant Box`
+:doc:`/Vagrant.Export-Base Box`
+
+See Also
+--------
+
+.. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
+.. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
+.. [3] https://developer.hashicorp.com/vagrant/docs/installation#windows-virtualbox-and-hyper-v

@@ -13,6 +13,9 @@ Brief
 Prerequisites
 -------------
 
+1. Goto: `Vagrant Downloads Page <https://developer.hashicorp.com/vagrant/downloads>`_ and install the latest version.
+2. Install a Virtual Machine Provider (`ref <https://developer.hashicorp.com/vagrant/docs/providers>`_). This tutorial covers VirtualBox and VMWare, with Virtual box having the most support.
+
 .. tab-set:: 
 
    .. tab-item:: Provider: VirtualBox

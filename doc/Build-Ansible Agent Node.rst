@@ -5,7 +5,7 @@ Build-Ansible Agent Node
 
    .. tab-item:: GuestOS: Windows
 
-      NOOP
+      No action required.
 
    .. tab-item:: GuestOS: Linux
 

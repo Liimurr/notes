@@ -34,7 +34,7 @@ VM.ConvertTo-Box File
       :sync: vmware
          
       .. code-block:: powershell
-         :caption: PowerShell (Script)
+         :caption: PowerShell (Script) (Host Machine)
 
          param ( 
            # Path to the virtual machine
@@ -86,7 +86,7 @@ VM.ConvertTo-Box File
          tar cvzf (Join-Path $BoxDir "$VMName.box") --directory=$VMDir $FilesToArchive
 
       .. code-block:: powershell
-         :caption: PowerShell (Usage)
+         :caption: PowerShell (Usage) (Host Machine)
 
          & (Join-Path '.' 'script.ps1') -VMDir (Join-Path 'E:' 'assets' 'vms' 'win-11') -BoxDir (Join-Path 'E:' 'assets' 'vagrant' 'boxes') -VMName 'win-11' -VMProvider 'vmware_desktop'
 
@@ -94,7 +94,7 @@ Box.Initialize-Vagrant
 ++++++++++++++++++++++
 
 .. code-block:: shell
-   :caption: shell / cmd
+   :caption: shell / cmd (Host Machine)
    
    vagrant box add --name my-box /path/to/the/new.box
    vagrant init my-box
@@ -111,7 +111,7 @@ Box.Initialize-Vagrant
          2. Add the following to the Vagrantfile in the directory you called ``vagrant init`` in:
             
             .. code-block:: ini
-               :caption: Vagrantfile
+               :caption: Vagrantfile (Host Machine)
             
                config.vm.base_mac=<mac address>
 
@@ -119,7 +119,7 @@ Box.Initialize-Vagrant
          :open:
 
          .. code-block:: shell
-            :caption: shell / cmd
+            :caption: shell / cmd (Host Machine)
 
             vagrant up --provider virtualbox
 
@@ -130,7 +130,7 @@ Box.Initialize-Vagrant
          :open:
 
          .. code-block:: shell
-               :caption: shell / cmd
+               :caption: shell / cmd (Host Machine)
 
                vagrant up --provider vmware_desktop
 

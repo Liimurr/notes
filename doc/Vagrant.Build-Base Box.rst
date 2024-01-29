@@ -25,7 +25,7 @@ Prerequisites
          :open:
 
          .. code-block:: powershell
-            :caption: PowerShell
+            :caption: PowerShell (Host Machine)
 
             Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 
@@ -46,7 +46,7 @@ Prerequisites
          :open:
          
          .. code-block:: powershell
-            :caption: PowerShell
+            :caption: PowerShell (Host Machine)
 
             vagrant plugin install vagrant-vmware-desktop 
 
@@ -84,39 +84,26 @@ Initialize-VM Virtual Hardware
    .. tab-item:: GuestOS: MacOS
       :sync: macos
 
-      .. tab-set:: 
+      .. card::
 
-         .. tab-item:: Provider: VirtualBox
-            :sync: virtualbox
+         .. tab-set:: 
 
-            .. code-block:: powershell
-               :caption: PowerShell
+            .. tab-item:: Provider: VirtualBox
+               :sync: virtualbox
 
-               $VMName = 'virtualbox-vagrant-macos-12'
-               $VBoxManage = Join-Path ([Environment]::GetFolderPath('ProgramFiles')) Oracle VirtualBox VBoxManage.exe
-               & $VBoxManage modifyvm $VMName --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
-               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac19,3"
-               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
-               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple"
-               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
-               & $VBoxManage setextradata $VMName "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
-               & $VBoxManage modifyvm $VMName --cpu-profile "Intel Core i7-2635QM"
+               .. code-block:: powershell
+                  :caption: PowerShell (Host Machine)
+
+                  $VMName = 'virtualbox-vagrant-macos-12'
+                  $VBoxManage = Join-Path ([Environment]::GetFolderPath('ProgramFiles')) Oracle VirtualBox VBoxManage.exe
+                  & $VBoxManage modifyvm $VMName --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
+                  & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac19,3"
+                  & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
+                  & $VBoxManage setextradata $VMName "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple"
+                  & $VBoxManage setextradata $VMName "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
+                  & $VBoxManage setextradata $VMName "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+                  & $VBoxManage modifyvm $VMName --cpu-profile "Intel Core i7-2635QM"
                
-         .. tab-item:: Provider: VMWare
-            :sync: vmware
-
-            _
-
-   .. tab-item:: GuestOS: Windows
-      :sync: windows
-      
-      _
-
-   .. tab-item:: GuestOS: Ubuntu
-      :sync: ubuntu
-
-      _
-
 Install-Guest Operating System
 ++++++++++++++++++++++++++++++
 
@@ -153,13 +140,13 @@ Install-SSH Server on Guest VM
          
          .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/macos.sh
             :language: shell
-            :caption: shell
+            :caption: shell (Guest Machine)
 
       .. dropdown:: Initialize-Authorizied Keys Directory
          :open:   
          
          .. code-block:: shell
-            :caption: shell
+            :caption: shell (Guest Machine)
             
             sudo chmod go-w ~/
             sudo mkdir ~/.ssh
@@ -175,7 +162,7 @@ Install-SSH Server on Guest VM
 
          .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/windows.ps1
             :language: powershell
-            :caption: PowerShell
+            :caption: PowerShell (Guest Machine)  
 
    .. tab-item:: GuestOS: Ubuntu
       :sync: ubuntu
@@ -185,7 +172,7 @@ Install-SSH Server on Guest VM
          
          .. literalinclude:: /../src/sys-admin-scripts/agent/install-ssh-server/ubuntu.sh
             :language: shell
-            :caption: shell
+            :caption: shell (Guest Machine)
          
 Test-Host to Guest SSH Connection
 ++++++++++++++++++++++++++++++++++
@@ -225,7 +212,7 @@ Test-Host to Guest SSH Connection
          Make sure the VM is running, then invoke the following command on the Host machine:
 
          .. code-block:: shell 
-            :caption: shell / cmd
+            :caption: shell / cmd (Host Machine)
       
             ssh vagrant@localhost -p 2222
 
@@ -235,18 +222,18 @@ Test-Host to Guest SSH Connection
       .. dropdown:: Find-Guest IP
          :open:
 
-         1. On Guest, Goto **VMWare** \| **Your Virtual Machine** \| **Settings** \| **Network Adapter** \| **Advanced** \| **MAC Address** 
-         2. On Host, invoke ``arp -a`` and look for the MAC Address of the VM. The IP Address associated with the MAC Address is the IP Address of the Guest OS Machine.
+         1. On Guest Machine, Goto **VMWare** \| **Your Virtual Machine** \| **Settings** \| **Network Adapter** \| **Advanced** \| **MAC Address** 
+         2. On Host Machine, invoke ``arp -a`` and look for the MAC Address of the Guest Machine. The IP Address associated with the MAC Address is the IP Address of the Guest Machine.
       
       .. dropdown:: Test-SSH Connection
          :open:
 
-         Make sure the VM is running, then invoke the following command on the Host machine:
+         Make sure the VM is running, then invoke the following command on the Host Machine:
 
          .. code-block:: shell
-            :caption: shell / cmd
+            :caption: shell / cmd (Host Machine)
       
-            ssh vagrant@<IP Address>
+            ssh vagrant@<Guest Machine's IP Address>
 
 Edit-Security Policies
 +++++++++++++++++++++++++++++++++++++++
@@ -258,7 +245,7 @@ Edit-Security Policies
       .. dropdown:: Edit-Windows Security Policies [4]_
 
          .. code-block:: powershell
-            :caption: PowerShell
+            :caption: PowerShell (Guest Machine)
 
             # Disable UAC (User Account Control)
             Set-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'EnableLUA' -Value 0 -Type DWORD -ErrorAction SilentlyContinue

@@ -7,7 +7,9 @@ Liimurr's Notes
 
    Vagrant.Build-Base Box.rst
    Vagrant.Export-Base Box.rst
+   Install-WSL.rst
    Build-Ansible Control Node.rst
    Build-Ansible Agent Node.rst
+   Test-Ansible.rst
    Add-Submodule to Github Actions Checkout.rst
    jupyter-notebook-test.ipynb

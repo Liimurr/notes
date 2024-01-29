@@ -1,14 +1,30 @@
 Build-Ansible Control Node
 ==========================
 
+Prerequisites
+-------------
+
 .. tab-set:: 
 
    .. tab-item:: GuestOS: Windows
+      :sync: win
+   
+      :doc:`Install-WSL`
 
-      .. code-block:: powershell
-         :caption: PowerShell
+Procedure
+---------
 
-         wsl --install
+.. tab-set:: 
+
+   .. tab-item:: GuestOS: MacOS
+
+      .. code-block:: shell
+         :caption: shell
+
+         brew install ansible
+
+   .. tab-item:: GuestOS: Windows
+      :sync: win
 
       .. card::
 
@@ -30,13 +46,6 @@ Build-Ansible Control Node
          :caption: shell
          
          pip3 install --user ansible
-
-   .. tab-item:: GuestOS: MacOS
-
-      .. code-block:: shell
-         :caption: shell
-
-         brew install ansible
 
 See Also
 --------

@@ -23,6 +23,10 @@ Prerequisites
 
       .. dropdown:: Disable-HyperV [3]_
          :open:
+         
+         .. warning::
+
+            This step may be unnecessary in later versions of VirtualBox. Try skipping this step first, and if you encounter issues, then perform this step.
 
          .. code-block:: powershell
             :caption: PowerShell (Host Machine)

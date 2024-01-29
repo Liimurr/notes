@@ -50,4 +50,5 @@ Procedure
 See Also
 --------
 
-- Ansible: up and running Ch. 2 - Installation and Setup
+- Ansible: Up and Running Ch. 2 - Installation and Setup
+- https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#control-node-requirements

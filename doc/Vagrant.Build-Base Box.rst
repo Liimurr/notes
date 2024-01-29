@@ -248,6 +248,39 @@ Test-Host to Guest SSH Connection
       
             ssh vagrant@<IP Address>
 
+Edit-Security Policies
++++++++++++++++++++++++++++++++++++++++
+
+.. tab-set::
+   
+   .. tab-item:: GuestOS: Windows
+
+      .. dropdown:: Edit-Windows Security Policies [4]_
+
+         .. code-block:: powershell
+            :caption: PowerShell
+
+            # Disable UAC (User Account Control)
+            Set-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'EnableLUA' -Value 0 -Type DWORD -ErrorAction SilentlyContinue
+
+            # Disable Shutdown Tracker
+            Set-ItemProperty -Path 'HKLM:\Software\Policies\Microsoft\Windows NT\Reliability' -Name 'ShutdownReasonOn' -Value 0 -ErrorAction SilentlyContinue
+
+            # Disable Server Manager at Logon
+            Set-ItemProperty -Path 'HKLM:\Software\Policies\Microsoft\Windows\Server\ServerManager' -Name 'DoNotOpenAtLogon' -Value 1 -ErrorAction SilentlyContinue
+
+            # Disable Complex Passwords
+            $ConfigFile = New-TemporaryFile
+            $SecurityDatabseFile = Join-Path  $env:SystemDrive 'windows' 'security' 'local.sdb'
+            secedit /export /cfg "$ConfigFile"
+            (Get-Content $ConfigFile).replace("PasswordComplexity = 1", "PasswordComplexity = 0") | Out-File "$ConfigFile"
+            secedit /configure /db $SecurityDatabseFile /cfg $ConfigFile /areas SECURITYPOLICY
+            Remove-Item -Path $ConfigFile -Force -Confirm:$false
+
+Install Additional Software
++++++++++++++++++++++++++++
+Install any additional software you wish to have on your base box. For example, PowerShell Core, Python, etc.
+
 Next steps
 ----------
 
@@ -256,6 +289,11 @@ Next steps
 See Also
 --------
 
+- `Vagrant Windows Base Box Configuration <https://developer.hashicorp.com/vagrant/docs/boxes/base#base-windows-configuration>`_
+- `Stack Overflow Edit Group Policy <https://serverfault.com/a/848519>`_
+- `Download List of Registry Keys <https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250>`_
+
 .. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
 .. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
 .. [3] https://developer.hashicorp.com/vagrant/docs/installation#windows-virtualbox-and-hyper-v
+.. [4] https://developer.hashicorp.com/vagrant/docs/boxes/base#base-windows-configuration

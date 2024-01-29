@@ -3,11 +3,11 @@ Build-Ansible Agent Node
 
 .. tab-set:: 
 
-   .. tab-item:: GuestOS: Windows
+   .. tab-item:: OS: Windows
 
       No action required.
 
-   .. tab-item:: GuestOS: Linux
+   .. tab-item:: OS: Linux
 
       .. code-block:: shell
          :caption: shell
@@ -15,7 +15,7 @@ Build-Ansible Agent Node
          sudo apt update
          sudo apt install python3.12
 
-   .. tab-item:: GuestOS: MacOS
+   .. tab-item:: OS: MacOS
 
       .. code-block:: shell
          :caption: shell

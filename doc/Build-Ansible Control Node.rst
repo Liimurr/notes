@@ -6,7 +6,7 @@ Prerequisites
 
 .. tab-set:: 
 
-   .. tab-item:: GuestOS: Windows
+   .. tab-item:: OS: Windows
       :sync: win
    
       :doc:`Install-WSL`
@@ -16,14 +16,14 @@ Procedure
 
 .. tab-set:: 
 
-   .. tab-item:: GuestOS: MacOS
+   .. tab-item:: OS: MacOS
 
       .. code-block:: shell
          :caption: shell
 
-         brew install ansible
+         yes | brew install ansible
 
-   .. tab-item:: GuestOS: Windows
+   .. tab-item:: OS: Windows
       :sync: win
 
       .. card::
@@ -36,16 +36,16 @@ Procedure
                :caption: shell (WSL)
 
                sudo apt-get update 
-               sudo apt-get install python3-pip git libffi-dev 
+               sudo apt-get -y install python3-pip git libffi-dev 
                libssl-dev -y 
-               pip3 install --user ansible
+               pip3 install --yes --user ansible
 
-   .. tab-item:: GuestOS: Linux
+   .. tab-item:: OS: Linux
 
       .. code-block:: shell
          :caption: shell
          
-         pip3 install --user ansible
+         pip3 install --yes --user ansible
 
 See Also
 --------

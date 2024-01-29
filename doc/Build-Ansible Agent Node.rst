@@ -13,14 +13,14 @@ Build-Ansible Agent Node
          :caption: shell
 
          sudo apt update
-         sudo apt install python3.12
+         sudo apt install -y python3.12
 
    .. tab-item:: OS: MacOS
 
       .. code-block:: shell
          :caption: shell
 
-         brew install python@3.12
+         yes | brew install python@3.12
 
 See Also
 --------

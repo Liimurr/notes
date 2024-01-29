@@ -10,15 +10,19 @@ Build-Ansible Control Node
 
          wsl --install
 
-      Launch WSL
+      .. card::
 
-      .. code-block:: shell
-         :caption: shell
+         1. Launch WSL Terminal
 
-         sudo apt-get update 
-         sudo apt-get install python3-pip git libffi-dev 
-         libssl-dev -y 
-         pip3 install --user ansible
+         2. On WSL, Install Ansible:
+
+            .. code-block:: shell
+               :caption: shell (WSL)
+
+               sudo apt-get update 
+               sudo apt-get install python3-pip git libffi-dev 
+               libssl-dev -y 
+               pip3 install --user ansible
 
    .. tab-item:: GuestOS: Linux
 

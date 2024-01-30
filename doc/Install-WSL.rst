@@ -2,7 +2,7 @@ Install-WSL
 ===========
 Prerequisites
 -------------
-Running on Windows Operating System
+Requires Windows Operating System
 
 Procedure
 ---------

@@ -9,7 +9,8 @@ Prerequisites
    .. tab-item:: OS: Windows
 
       .. literalinclude:: /../src/sys-admin-scripts/update-winget.ps1
-         :language: cmd
+         :language: powershell
+         :caption: PowerShell
 
 Procedure
 ---------
@@ -20,13 +21,16 @@ Procedure
 
       .. literalinclude:: /../src/sys-admin-scripts/install-powershell/windows.cmd
          :language: cmd
+         :caption: CMD
 
    .. tab-item:: OS: Ubuntu
 
       .. literalinclude:: /../src/sys-admin-scripts/install-powershell/ubuntu.sh
-         :language: bash
+         :language: shell
+         :caption: Shell
 
    .. tab-item:: OS: MacOS
          
       .. literalinclude:: /../src/sys-admin-scripts/install-powershell/macos.sh
-         :language: bash
+         :language: shell
+         :caption: Shell

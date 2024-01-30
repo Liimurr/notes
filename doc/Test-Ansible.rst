@@ -23,10 +23,17 @@ Procedure
 
          .. code-block:: shell
             :caption: shell (WSL)
+            
+            export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+            export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+            export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/e/assets/ansible-playbooks"
 
-            # must be a path on the host machine
-            cd /mnt/e/assets/ansible-playbooks
-            vagrant init win-11
+            # must be a path on the host machine (see `ls /mnt/` for valid paths)
+            ANSIBLE_HOME='/mnt/e/assets/ansible-playbooks'
+            VAGRANT_BOX='win-11'
+
+            cd $ANSIBLE_HOME
+            vagrant init $VAGRANT_BOX
             echo '1000' > /.vagrant/machines/default/virtualbox/creator_uid
             vagrant up --provider virtualbox
 

@@ -47,6 +47,23 @@ Install Ansible
                export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
                export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
                export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/e/assets/ansible-playbooks"
+      
+         4. On WSL, set restrictive file permissions for windows Files
+
+            .. code-block:: shell
+               :caption: shell (WSL)
+
+               sudo nano /etc/wsl.conf
+
+            .. code-block:: ini
+               :caption: add lines to /etc/wsl.conf
+
+               [automount]
+               options = "umask=077"
+            
+            Press ``Ctrl+O`` to save and ``Ctrl+X`` to exit
+
+            Wait 8 Seconds for the changes to take effect [3]_
 
    .. tab-item:: OS: Linux
 
@@ -71,3 +88,4 @@ See Also
    
    .. [1] https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-boxes
    .. [2] Ansible: Up and Running Ch. 2 - Installation and Setup
+   .. [3] https://learn.microsoft.com/en-us/windows/wsl/wsl-config#the-8-second-rule-for-configuration-changes

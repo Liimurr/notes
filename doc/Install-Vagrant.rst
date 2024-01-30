@@ -22,7 +22,7 @@ Procedure
          $Version = Invoke-WebRequest -Uri 'https://releases.hashicorp.com/vagrant/' | Select-Object -ExpandProperty Links | Where-Object { $_.href -match '/vagrant/[0-9]+\.[0-9]+\.[0-9]+/' } | Select-Object -First 1 -ExpandProperty href | Split-Path -Leaf
          $Arch = if ($env:PROCESSOR_ARCHITECTURE -eq 'AMD64') { 'amd64' } else { 'i686' }
          $URL = "https://releases.hashicorp.com/vagrant/$Version/vagrant_${Version}_windows_${Arch}.msi"
-         $Dest = Join-Path $env:TEMP 'vagrant.msi'
+         $Dest = Join-Path ([System.IO.Path]::GetTempPath()) 'vagrant.msi'
          Invoke-WebRequest -Uri $URL -OutFile $Dest
          Start-Process -FilePath msiexec -ArgumentList "/i $Dest /qn /passive /norestart" -Wait
          Remove-Item -Path $Dest

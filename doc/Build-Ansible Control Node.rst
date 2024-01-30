@@ -37,14 +37,14 @@ Procedure
 
                sudo apt-get update 
                sudo apt-get -y install python3-pip git libffi-dev libssl-dev
-               pip3 install --yes --user ansible
+               pip3 install --user ansible
 
    .. tab-item:: OS: Linux
 
       .. code-block:: shell
          :caption: shell
          
-         pip3 install --yes --user ansible
+         pip3 install --user ansible
 
 See Also
 --------

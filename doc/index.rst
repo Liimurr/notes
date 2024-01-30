@@ -7,6 +7,7 @@ Liimurr's Notes
 
    Vagrant.Build-Base Box.rst
    Vagrant.Export-Base Box.rst
+   Install-Powershell.rst
    Install-WSL.rst
    Build-Ansible Control Node.rst
    Build-Ansible Agent Node.rst

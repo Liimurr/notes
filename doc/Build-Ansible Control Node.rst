@@ -63,7 +63,11 @@ Install Ansible
             
             Press ``Ctrl+O`` to save and ``Ctrl+X`` to exit
 
+            Shutdown WSL 
+
             Wait 8 Seconds for the changes to take effect [3]_
+
+            Start WSL
 
    .. tab-item:: OS: Linux
 

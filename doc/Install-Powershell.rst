@@ -4,7 +4,9 @@ Install-Powershell
 Prerequisites
 -------------
 
-.. tab-set:: 
+Update WinGet
++++++++++++++
+.. tab-set::
 
    .. tab-item:: OS: Windows
 
@@ -14,6 +16,9 @@ Prerequisites
 
 Procedure
 ---------
+
+Install-Powershell
+++++++++++++++++++
 
 .. tab-set:: 
 

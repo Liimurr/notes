@@ -6,16 +6,37 @@ Prerequisites
 - Installed Ansible
 - Running on Ansible Control Node (see :doc:`Build-Ansible Control Node`)
 
+.. tab-set:: 
+
+   .. tab-item:: OS: Windows
+
+      vagrant plugin install virtualbox_WSL2
+
 Procedure
 ---------
 .. dropdown:: Initialize-Vagrant VM
    :open:
 
-   .. code-block:: shell
-      :caption: shell / cmd
+   .. tab-set:: 
+      
+      .. tab-item:: OS: Windows
 
-      vagrant init win-11
-      vagrant up --provider virtualbox
+         .. code-block:: shell
+            :caption: shell (WSL)
+
+            # must be a path on the host machine
+            cd /mnt/e/assets/ansible-playbooks
+            vagrant init win-11
+            echo '1000' > /.vagrant/machines/default/virtualbox/creator_uid
+            vagrant up --provider virtualbox
+
+      .. tab-item:: OS: Other
+
+         .. code-block:: shell
+            :caption: shell (WSL)
+
+            vagrant init win-11
+            vagrant up --provider virtualbox
    
 .. dropdown:: Initialize-Ansible Inventory
    :open:

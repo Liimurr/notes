@@ -1,15 +1,11 @@
 Install-WSL
 ===========
-
 Prerequisites
 -------------
-
-- Windows Operating System
-
+Running on Windows Operating System
 
 Procedure
 ---------
-
 .. code-block:: powershell
    :caption: PowerShell
 

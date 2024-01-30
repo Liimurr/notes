@@ -24,7 +24,6 @@ Prerequisites
 
 Procedure
 ---------
-
 .. dropdown:: Add-Private SSH Key to Repository Secrets
    :open:
 
@@ -58,6 +57,9 @@ Procedure
 
 See Also
 --------
+.. card::
 
-- https://maxschmitt.me/posts/github-actions-ssh-key
-- https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+   **External Links**
+   
+   - https://maxschmitt.me/posts/github-actions-ssh-key
+   - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key

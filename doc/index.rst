@@ -5,10 +5,11 @@ Liimurr's Notes
    :maxdepth: 1
    :caption: Contents:
 
-   Vagrant.Build-Base Box.rst
-   Vagrant.Export-Base Box.rst
    Install-Powershell.rst
    Install-WSL.rst
+   Install-Vagrant.rst
+   Vagrant.Build-Base Box.rst
+   Vagrant.Export-Base Box.rst
    Build-Ansible Control Node.rst
    Build-Ansible Agent Node.rst
    Test-Ansible.rst

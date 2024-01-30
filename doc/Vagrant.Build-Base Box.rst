@@ -12,7 +12,6 @@ Brief
 
 Prerequisites
 -------------
-
 1. Goto: `Vagrant Downloads Page <https://developer.hashicorp.com/vagrant/downloads>`_ and install the latest version.
 2. Install a Virtual Machine Provider (`ref <https://developer.hashicorp.com/vagrant/docs/providers>`_). This tutorial covers VirtualBox and VMWare, with Virtual box having the most support.
 
@@ -56,10 +55,8 @@ Prerequisites
 
 Procedure
 ---------
-
 Initialize-VM Virtual Hardware
 ++++++++++++++++++++++++++++++
-
 .. tab-set:: 
 
    .. tab-item:: GuestOS: MacOS
@@ -110,7 +107,6 @@ Initialize-VM Virtual Hardware
                
 Install-Guest Operating System
 ++++++++++++++++++++++++++++++
-
 .. tab-set:: 
 
    .. tab-item:: GuestOS: MacOS
@@ -133,7 +129,6 @@ Install-Guest Operating System
 
 Install-SSH Server on Guest VM
 ++++++++++++++++++++++++++++++
-
 .. tab-set::
    
    .. tab-item:: GuestOS: MacOS
@@ -180,7 +175,6 @@ Install-SSH Server on Guest VM
          
 Test-Host to Guest SSH Connection
 ++++++++++++++++++++++++++++++++++
-
 .. tab-set::
 
    .. tab-item:: Provider: VirtualBox
@@ -241,7 +235,6 @@ Test-Host to Guest SSH Connection
 
 Edit-Security Policies
 +++++++++++++++++++++++++++++++++++++++
-
 .. tab-set::
    
    .. tab-item:: GuestOS: Windows
@@ -274,17 +267,21 @@ Install any additional software you wish to have on your base box. For example, 
 
 Next steps
 ----------
-
 :doc:`/Vagrant.Export-Base Box`
 
 See Also
 --------
+.. card::
 
-- `Vagrant Windows Base Box Configuration <https://developer.hashicorp.com/vagrant/docs/boxes/base#base-windows-configuration>`_
-- `Stack Overflow Edit Group Policy <https://serverfault.com/a/848519>`_
-- `Download List of Registry Keys <https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250>`_
-
-.. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
-.. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
-.. [3] https://developer.hashicorp.com/vagrant/docs/installation#windows-virtualbox-and-hyper-v
-.. [4] https://developer.hashicorp.com/vagrant/docs/boxes/base#base-windows-configuration
+   **External Links**
+   
+   - `Vagrant Windows Base Box Configuration <https://developer.hashicorp.com/vagrant/docs/boxes/base#base-windows-configuration>`_
+   - `Stack Overflow Edit Group Policy <https://serverfault.com/a/848519>`_
+   - `Download List of Registry Keys <https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250>`_
+   
+   **Footnotes**
+   
+   .. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility
+   .. [2] https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation
+   .. [3] https://developer.hashicorp.com/vagrant/docs/installation#windows-virtualbox-and-hyper-v
+   .. [4] https://developer.hashicorp.com/vagrant/docs/boxes/base#base-windows-configuration

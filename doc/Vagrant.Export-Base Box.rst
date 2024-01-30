@@ -141,6 +141,9 @@ Box.Initialize-Vagrant
 
 See Also
 --------
+.. card::
 
-- https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#optimizing-box-size
-- https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#contents
+   **External Links**
+   
+   - https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#optimizing-box-size
+   - https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#contents

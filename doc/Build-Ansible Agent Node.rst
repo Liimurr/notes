@@ -24,5 +24,8 @@ Build-Ansible Agent Node
 
 See Also
 --------
+.. card::
 
-- https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix
+   **External Links**
+   
+   - https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix

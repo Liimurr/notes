@@ -36,8 +36,7 @@ Procedure
                :caption: shell (WSL)
 
                sudo apt-get update 
-               sudo apt-get -y install python3-pip git libffi-dev 
-               libssl-dev -y 
+               sudo apt-get -y install python3-pip git libffi-dev libssl-dev
                pip3 install --yes --user ansible
 
    .. tab-item:: OS: Linux

@@ -7,6 +7,11 @@ Brief
 2. Add the box file to vagrant
 3. Test the box file with vagrant by provisioning it in a new directory
 
+Prerequisites
+-------------
+
+:doc:`Vagrant.Build-Base Box`
+
 Procedure
 ---------
 

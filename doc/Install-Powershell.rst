@@ -4,7 +4,7 @@ Install-Powershell
 Prerequisites
 -------------
 
-Update WinGet
+Update-WinGet
 +++++++++++++
 .. tab-set::
 

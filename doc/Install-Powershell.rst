@@ -21,16 +21,16 @@ Procedure
 
       .. literalinclude:: /../src/sys-admin-scripts/install-powershell/windows.cmd
          :language: cmd
-         :caption: CMD
+         :caption: cmd
 
    .. tab-item:: OS: Ubuntu
 
       .. literalinclude:: /../src/sys-admin-scripts/install-powershell/ubuntu.sh
          :language: shell
-         :caption: Shell
+         :caption: shell
 
    .. tab-item:: OS: MacOS
          
       .. literalinclude:: /../src/sys-admin-scripts/install-powershell/macos.sh
          :language: shell
-         :caption: Shell
+         :caption: shell

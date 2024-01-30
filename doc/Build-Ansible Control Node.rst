@@ -7,7 +7,8 @@ Prerequisites
    .. tab-item:: OS: Windows
       :sync: win
    
-      :doc:`Install-WSL`
+      - :doc:`Install-WSL`
+      - Install-VirtualBox (see `Downdloads Page <https://www.virtualbox.org/wiki/Downloads>`_)
 
 Procedure [2]_
 --------------

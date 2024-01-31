@@ -163,6 +163,16 @@ Install-SSH Server on Guest VM
             :language: powershell
             :caption: PowerShell (Guest Machine)  
 
+         
+         uncomment the following line in ``%ProgramData%/sshd_config``:
+
+         .. code-block:: diff
+            :caption: %ProgramData%/sshd_config (Guest Machine)
+
+            - #PublickeyAuthentication yes
+            + PublickeyAuthentication yes
+
+
    .. tab-item:: GuestOS: Ubuntu
       :sync: ubuntu
 

@@ -120,24 +120,38 @@ Box.Initialize-Vagrant
             
                config.vm.base_mac=<mac address>
 
-      .. dropdown:: Provision the Vagrant Box
+.. tab-set:: 
+
+   .. tab-item:: GuestOS: Windows
+
+      .. dropdown:: Add-Content to Vagrantfile
          :open:
 
-         .. code-block:: shell
-            :caption: shell / cmd (Host Machine)
+            Add the following to the Vagrantfile in the directory you called ``vagrant init`` in:
 
-            vagrant up --provider virtualbox
+            .. code-block:: ini
+               :caption: Vagrantfile (Host Machine)
+            
+               config.ssh.shell = "powershell"
+
+Box.Provision-Vagrant
++++++++++++++++++++++
+
+.. tab-set:: 
+
+   .. tab-item:: VirtualBox
+
+      .. code-block:: shell
+         :caption: shell / cmd (Host Machine)
+
+         vagrant up --provider virtualbox
 
    .. tab-item:: VMWare
-      :sync: vmware
       
-      .. dropdown:: Provision the Vagrant Box
-         :open:
+      .. code-block:: shell
+            :caption: shell / cmd (Host Machine)
 
-         .. code-block:: shell
-               :caption: shell / cmd (Host Machine)
-
-               vagrant up --provider vmware_desktop
+            vagrant up --provider vmware_desktop
 
 See Also
 --------

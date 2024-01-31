@@ -48,6 +48,11 @@ Install Ansible
                export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
                export VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH="/mnt/e/assets/ansible-playbooks"
       
+         4. On PowerShell, set restrictive file permissions
+
+            cd E:\assets\ansible-playbooks\
+            icacls ./.vagrant.d/insecure_private_key /remove "NT AUTHORITY\Authenticated Users"
+
          4. On WSL, set restrictive file permissions for windows Files
 
             .. code-block:: shell
@@ -68,6 +73,7 @@ Install Ansible
             Wait 8 Seconds for the changes to take effect [3]_
 
             Start WSL
+         
 
    .. tab-item:: OS: Linux
 

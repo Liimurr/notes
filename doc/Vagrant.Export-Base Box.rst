@@ -127,22 +127,15 @@ Box.Initialize-Vagrant
       .. dropdown:: Add-Content to Vagrantfile 
          :open:
 
-            Add the following to the Vagrantfile in the same directory you called ``vagrant init`` [1]_ [2]_
+            Add the following to the Vagrantfile in the same directory you called ``vagrant init`` [1]_ [2]_ [3]_
 
-            .. code-block:: ini
+            .. code-block:: ruby
                :caption: Vagrantfile (Host Machine)
             
                config.ssh.shell = "powershell"
                config.vm.guest = :windows
-               config.vm.synced_folder '.', '/vagrant', disabled: true
-            
-            Add the following to fix ssh issues (see also: `Possibly related / Potential fix <https://github.com/hashicorp/vagrant/issues/12344#issuecomment-845065364>`_):
-
-            .. code-block:: ini
-               :caption: Vagrantfile (Host Machine)
-            
-            
-               config.ssh.insert_key = false
+               config.ssh.insert_key = false # can't insert ssh on windows
+               config.vm.synced_folder '.', '/vagrant', disabled: true # can't sync folders on wsl to windows virtualbox
 
 Box.Provision-Vagrant
 +++++++++++++++++++++
@@ -176,3 +169,4 @@ See Also
 
    .. [1] `windows required setting: config-vm-guest <https://developer.hashicorp.com/vagrant/docs/vagrantfile/machine_settings#config-vm-guest>`_
    .. [2] `remove synced folders <https://superuser.com/a/757031>`_
+   .. [3] `can't insert ssh on windows <https://github.com/hashicorp/vagrant/issues/12344#issuecomment-845065364>`_

@@ -14,9 +14,6 @@ Prerequisites
 
 Procedure
 ---------
-
-.. _Test:
-
 VM.ConvertTo-Box File
 +++++++++++++++++++++
 
@@ -95,66 +92,9 @@ VM.ConvertTo-Box File
 
          & (Join-Path '.' 'script.ps1') -VMDir (Join-Path 'E:' 'assets' 'vms' 'win-11') -BoxDir (Join-Path 'E:' 'assets' 'vagrant' 'boxes') -VMName 'win-11' -VMProvider 'vmware_desktop'
 
-Box.Initialize-Vagrant
-++++++++++++++++++++++
-
-.. code-block:: shell
-   :caption: shell / cmd (Host Machine)
-   
-   vagrant box add --name my-box /path/to/the/new.box
-   vagrant init my-box
-
-.. tab-set::
-
-   .. tab-item:: VirtualBox
-      :sync: virtualbox
-
-      .. dropdown:: Add-Content to Vagrantfile
-         :open:
-
-         1. Copy **VirtualBox** \| <**Your VM**> \| **Settings** \| **Network** \| **Adapter 1** \| **Advanced** \| **MAC Address**
-         2. Add the following to the Vagrantfile in the directory you called ``vagrant init`` in:
-            
-            .. code-block:: ini
-               :caption: Vagrantfile (Host Machine)
-            
-               config.vm.base_mac=<mac address>
-
-.. tab-set:: 
-
-   .. tab-item:: GuestOS: Windows
-
-      .. dropdown:: Add-Content to Vagrantfile 
-         :open:
-
-            Add the following to the Vagrantfile in the same directory you called ``vagrant init`` [1]_ [2]_ [3]_
-
-            .. code-block:: ruby
-               :caption: Vagrantfile (Host Machine)
-            
-               config.ssh.shell = "powershell"
-               config.vm.guest = :windows
-               config.ssh.insert_key = false # can't insert ssh on windows
-               config.vm.synced_folder '.', '/vagrant', disabled: true # can't sync folders on wsl to windows virtualbox
-
-Box.Provision-Vagrant
-+++++++++++++++++++++
-
-.. tab-set:: 
-
-   .. tab-item:: VirtualBox
-
-      .. code-block:: shell
-         :caption: shell / cmd (Host Machine)
-
-         vagrant up --provider virtualbox
-
-   .. tab-item:: VMWare
-      
-      .. code-block:: shell
-            :caption: shell / cmd (Host Machine)
-
-            vagrant up --provider vmware_desktop
+Next Steps
+----------
+:doc:`Vagrant.Initialize-VM`
 
 See Also
 --------
@@ -169,4 +109,3 @@ See Also
 
    .. [1] `windows required setting: config-vm-guest <https://developer.hashicorp.com/vagrant/docs/vagrantfile/machine_settings#config-vm-guest>`_
    .. [2] `remove synced folders <https://superuser.com/a/757031>`_
-   .. [3] `can't insert ssh on windows <https://github.com/hashicorp/vagrant/issues/12344#issuecomment-845065364>`_

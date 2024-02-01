@@ -16,6 +16,10 @@ Procedure
 
    .. tab-item:: OS: Windows
 
+      .. warning:: 
+         If installing vagrant on WSL, it is recommended only to install vagrant on the WSL environment and not on the Windows environment.
+         Otherwise, you will need to install the same version of vagrant on both environments. [1]_
+
       .. code-block:: powershell
          :caption: PowerShell
 
@@ -45,3 +49,6 @@ See Also
 
    `Vagrant Downloads Page <https://developer.hashicorp.com/vagrant/downloads>`_ and download the latest version of Vagrant for your platform.
    
+   **Footnotes**
+
+   .. [1] `Vagrant Installation on WSL <https://developer.hashicorp.com/vagrant/docs/other/wsl#vagrant-installation>`_

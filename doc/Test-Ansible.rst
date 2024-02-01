@@ -10,7 +10,10 @@ Prerequisites
 
    .. tab-item:: OS: Windows
 
-      vagrant plugin install virtualbox_WSL2
+      .. code-block:: shell
+         :caption: shell (WSL)
+      
+         vagrant plugin install virtualbox_WSL2
 
 Procedure
 ---------

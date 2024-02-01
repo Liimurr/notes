@@ -1,6 +1,11 @@
 Build-Ansible Agent Node
 ========================
+Brief
+-----
+On a worker/slave/agent computer, create a node to be controlled by Ansible.
 
+Procedure
+---------
 .. tab-set:: 
 
    .. tab-item:: OS: Windows

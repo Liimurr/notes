@@ -10,7 +10,7 @@ Prerequisites
       - :doc:`Install-WSL`
       - Install-VirtualBox (see `Downdloads Page <https://www.virtualbox.org/wiki/Downloads>`_)
 
-Procedure [2]_
+Procedure [1]_
 --------------
 Install Ansible
 +++++++++++++++
@@ -60,7 +60,4 @@ See Also
    
    **Footnotes**
    
-   .. [1] https://developer.hashicorp.com/vagrant/tutorials/getting-started/getting-started-boxes
-   .. [2] Ansible: Up and Running Ch. 2 - Installation and Setup
-   .. [3] https://learn.microsoft.com/en-us/windows/wsl/wsl-config#the-8-second-rule-for-configuration-changes
-   .. [4] https://askubuntu.com/questions/230759/etc-profile-vs-profile
+   .. [1] Ansible: Up and Running Ch. 2 - Installation and Setup

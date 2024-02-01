@@ -17,8 +17,8 @@ Procedure
    .. tab-item:: OS: Windows
 
       .. warning:: 
-         If installing vagrant on WSL, it is recommended only to install vagrant on the WSL environment and not on the Windows environment.
-         Otherwise, you will need to install the same version of vagrant on both environments. [1]_
+         If installing vagrant on WSL, it is recommended to install vagrant on the WSL environment only (using the Linux installation instructions) and not on the Windows environment.
+         Otherwise, you will need to install the same version of vagrant on both environments and may still run into other issues when trying to use the WSL vagrant binary. [1]_
 
       .. code-block:: powershell
          :caption: PowerShell

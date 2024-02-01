@@ -12,6 +12,9 @@ Prerequisites
 
 Procedure [1]_
 --------------
+
+.. _Install Ansible:
+
 Install Ansible
 +++++++++++++++
 .. tab-set:: 

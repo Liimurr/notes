@@ -3,7 +3,7 @@ Test-Ansible
 Prerequisites
 -------------
 - Installed Vagrant (see :doc:`Install-Vagrant`)
-- Installed Ansible
+- Installed Ansible (see :doc:`Build-Ansible Control Node`)
 - Running on Ansible Control Node (see :doc:`Build-Ansible Control Node`)
 
 .. tab-set:: 

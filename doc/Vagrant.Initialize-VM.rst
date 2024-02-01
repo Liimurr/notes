@@ -80,7 +80,7 @@ Edit-Vatgrantfile
 
 Next Steps
 ----------
-- :doc:`Vagrant.Up-VM`
+:doc:`Vagrant.Up-VM`
 
 See Also
 --------

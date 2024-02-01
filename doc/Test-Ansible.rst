@@ -1,5 +1,12 @@
 Test-Ansible
 ============
+Brief
+-----
+
+1. Install-Prerequisites
+2. Initialize-Vagrant VM
+3. Initialize-Ansible Inventory
+
 Prerequisites
 -------------
 - Installed Vagrant (see :doc:`Install-Vagrant`)

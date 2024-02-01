@@ -1,6 +1,11 @@
 Install-Vagrant
 ===============
 
+Brief
+-----
+
+Install the latest version of Vagrant on your system.
+
 Procedure
 ---------
 

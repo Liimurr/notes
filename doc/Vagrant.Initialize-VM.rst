@@ -67,16 +67,16 @@ Edit-Vatgrantfile
 
    .. tab-item:: GuestOS: Windows
 
-      .. dropdown:: Add-Content to ``Vagrantfile`` 
+      .. dropdown:: Add-Content to ``Vagrantfile`` [2]_ [3]_
          :open:
 
-            .. code-block:: ruby
-               :caption: Vagrantfile (Host Machine)
-            
-               config.ssh.shell = "powershell"
-               config.vm.guest = :windows
-               config.ssh.insert_key = false # can't insert ssh on windows
-               config.vm.synced_folder '.', '/vagrant', disabled: true # can't sync folders on wsl to windows virtualbox
+         .. code-block:: ruby
+            :caption: Vagrantfile (Host Machine)
+         
+            config.ssh.shell = "powershell"
+            config.vm.guest = :windows
+            config.ssh.insert_key = false # can't insert ssh on windows
+            config.vm.synced_folder '.', '/vagrant', disabled: true # can't sync folders on wsl to windows virtualbox
 
 Next Steps
 ----------
@@ -89,3 +89,5 @@ See Also
    **Footnotes**
 
    .. [1] `can't insert ssh on windows <https://github.com/hashicorp/vagrant/issues/12344#issuecomment-845065364>`_
+   .. [2] `windows required setting: config-vm-guest <https://developer.hashicorp.com/vagrant/docs/vagrantfile/machine_settings#config-vm-guest>`_
+   .. [3] `remove synced folders <https://superuser.com/a/757031>`_

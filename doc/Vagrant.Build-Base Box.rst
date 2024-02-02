@@ -172,6 +172,23 @@ Install-SSH Server on Guest VM
             - #PublickeyAuthentication yes
             + PublickeyAuthentication yes
 
+      .. dropdown:: Install WinRM
+
+         .. code-block:: powershell
+            :caption: PowerShell (Guest Machine)
+
+            Set-NetConnectionProfile -NetworkCategory Private
+            Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "LocalAccountTokenFilterPolicy" -Value 1
+            Set-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "DisablePwdCaching" -Value 0 -Type DWORD -Force
+            Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Lsa" -Name "disabledomaincreds" -Value 0
+
+            winrm quickconfig -q
+            winrm set 'winrm/config/winrs' '@{MaxMemoryPerShellMB="512"}'
+            winrm set 'winrm/config' '@{MaxTimeoutms="1800000"}'
+            winrm set 'winrm/config/service' '@{AllowUnencrypted="true"}'
+            winrm set 'winrm/config/service/auth' '@{Basic="true"}'
+            Enable-PSRemoting -Force
+            sc.exe config "WinRM" start= auto
 
    .. tab-item:: GuestOS: Ubuntu
       :sync: ubuntu
@@ -288,7 +305,8 @@ See Also
    - `Vagrant Windows Base Box Configuration <https://developer.hashicorp.com/vagrant/docs/boxes/base#base-windows-configuration>`_
    - `Stack Overflow Edit Group Policy <https://serverfault.com/a/848519>`_
    - `Download List of Registry Keys <https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250>`_
-   
+   - `Example: Using WSL Host with Windows Guest VM <https://discuss.hashicorp.com/t/winrm-port-does-not-work-in-vagrantfile/54601>`_
+
    **Footnotes**
    
    .. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility

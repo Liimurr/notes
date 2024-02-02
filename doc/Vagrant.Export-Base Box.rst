@@ -31,6 +31,13 @@ VM.ConvertTo-Box File
          :open:
 
          .. image:: /images/20240120181640.png
+      
+      .. dropdown:: Invoke-Vagrant Package Command
+
+         .. code-block:: shell
+            :caption: cmd / shell
+         
+            vagrant package --base virtualbox-vagrant-win-11 --output win-11
 
    .. tab-item:: VMWare
       :sync: vmware
@@ -104,8 +111,3 @@ See Also
    
    - https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#optimizing-box-size
    - https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes#contents
-
-   **Footnotes**
-
-   .. [1] `windows required setting: config-vm-guest <https://developer.hashicorp.com/vagrant/docs/vagrantfile/machine_settings#config-vm-guest>`_
-   .. [2] `remove synced folders <https://superuser.com/a/757031>`_

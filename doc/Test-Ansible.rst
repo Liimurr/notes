@@ -17,10 +17,16 @@ Prerequisites
 
    .. tab-item:: OS: Windows
 
-      .. code-block:: shell
-         :caption: shell (WSL)
-      
-         vagrant plugin install virtualbox_WSL2
+      Installed Vagrant on WSL
+
+      .. tab-set:: 
+
+         .. tab-item:: VirtualBox
+
+            .. code-block:: shell
+               :caption: shell (WSL)
+            
+               vagrant plugin install virtualbox_WSL2
 
 Procedure
 ---------
@@ -34,6 +40,9 @@ Procedure
          .. code-block:: shell
             :caption: shell (WSL)
 
+            ANSIBLE_PLAYBOOKS=$(wslpath -u 'E:\assets\ansible-playbooks')
+            VAGRANT_BOX=win-11
+            # ------------------------------
             cd $ANSIBLE_PLAYBOOKS
             vagrant init $VAGRANT_BOX
             vagrant up --provider virtualbox
@@ -52,9 +61,7 @@ Procedure
    .. code-block:: powershell
       :caption: PowerShell
 
-      $URI = 'https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.key.ed25519'
-      $OutFile = '.vagrant/machines/default/virtualbox/vagrant.key.ed25519'
-      Invoke-WebRequest -Uri $URI -OutFile $OutFile
+      $PrivateKeyFile = '.vagrant.d/insecure_private_key'
 
       New-Item -Path ./inventory/vagrant.ini -ItemType File -Force -Value @"
       [webservers]
@@ -63,7 +70,7 @@ Procedure
       [webservers:vars]
       ansible_host=127.0.0.1
       ansible_user=vagrant
-      ansible_private_key_file=$OutFile
+      ansible_private_key_file=$PrivateKeyFile
       "@
 
    

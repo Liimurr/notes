@@ -78,4 +78,4 @@ See Also
 
    **External Links**
    
-   https://docs.unrealengine.com/4.26/en-US/ProgrammingAndScripting/ProgrammingWithCPP/Assets/CoreRedirects/
+   `UE4 Docs/Core Redirects <https://docs.unrealengine.com/4.26/en-US/ProgrammingAndScripting/ProgrammingWithCPP/Assets/CoreRedirects/>`_

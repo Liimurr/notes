@@ -258,7 +258,7 @@ Test-Host to Guest SSH Connection
          .. code-block:: shell
             :caption: shell / cmd (Host Machine)
       
-            ssh vagrant@<Guest Machine's IP Address>
+            ssh vagrant@<Guest Machine IP Address>
 
 Edit-Security Policies
 +++++++++++++++++++++++++++++++++++++++
@@ -306,7 +306,8 @@ See Also
    - `Stack Overflow Edit Group Policy <https://serverfault.com/a/848519>`_
    - `Download List of Registry Keys <https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250>`_
    - `Example: Using WSL Host with Windows Guest VM <https://discuss.hashicorp.com/t/winrm-port-does-not-work-in-vagrantfile/54601>`_
-
+   - `Setup WinRM on Windows <https://github.com/AlbanAndrieu/ansible-windows/blob/master/files/ConfigureRemotingForAnsible.ps1>`_
+   
    **Footnotes**
    
    .. [1] https://developer.hashicorp.com/vagrant/docs/providers/vmware/vagrant-vmware-utility

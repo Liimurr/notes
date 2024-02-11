@@ -7,19 +7,19 @@ Prerequisites
 -------------
 Create an editor utility blueprint widget that performs the following:
 
-1. Rename all blueprint structs to a new name with a hash appended
-2. Rename all blueprint structs back to their original name
-3. Rename all data assets to a new name with a hash appended
-4. Rename all data assets back to their original name
+1. Rename all assets to a new name with a hash appended (this will force the editor to update the asset core redirect references within the asset)
+2. Rename all the assets back to their original name.
 
 Procedure
 ---------
 1. Refresh all assets
    
-   1. Refresh all blueprint nodes using ``RefeshAllNodes`` plugin
-   2. Refresh all non blueprint assets -- run the renaming widget utility on all non blueprint assets (DataAssets, Blueprint Structs)
+   1. Refresh all blueprint nodes using ``RefeshAllNodes`` plugin (this works on Blueprints only)
+   2. Refresh all instanced (non-blueprint) assets
+      
+      run the renaming widget utility on all non blueprint assets (most notably: DataAssets and Blueprint Structs)
 
-2. Find all non-blueprint assets that failed to update (Some assets may need a second try, or even an editor restart and another try)
+2. Find all in0stanced assets that failed to update (Some assets may need a second try, or even an editor restart and another try)
 
    1. Search Everywhere In VSCode
 

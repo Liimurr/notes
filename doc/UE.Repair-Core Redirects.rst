@@ -76,7 +76,7 @@ Powershell Generate Core Redirects for Directory
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 When renaming modules it can be useful to generate core redirects for all enums and structs in the module's directory.
-The following powershell script can be used for this.
+The following powershell script can be used for this. Obviously, this will not work with blueprint assets or data tables, but it can be useful for c++ modules.
 (TODO: update as needed with further redirect types)
 
 .. dropdown:: Script

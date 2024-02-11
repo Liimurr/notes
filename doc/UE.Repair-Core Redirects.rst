@@ -15,9 +15,7 @@ Procedure
 ---------
 1. Refresh all assets
    
-   1. FIRST Refresh all DataAssets and Blueprint Structs. (refreshing blueprint nodes before DataAssets or BlueprintStruct assets can cause blueprint node corruption)
-
-      run the renaming widget utility on all non blueprint assets (most notably:)
+   1. FIRST, using the utility blueprint widget, refresh all DataAssets and Blueprint Structs. (refreshing blueprint nodes before DataAssets or BlueprintStruct assets can cause blueprint node corruption)
 
    2. THEN Refresh all blueprint nodes using ``RefeshAllNodes`` plugin (this works on Blueprints only)
 

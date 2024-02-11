@@ -20,7 +20,7 @@ Procedure
 
    2. THEN Refresh all blueprint nodes using ``RefeshAllNodes`` plugin (this works on Blueprints only)
 
-2. Find all in0stanced assets that failed to update (Some assets may need a second try, or even an editor restart and another try)
+2. Find all instanced assets that failed to update (Some assets may need a second try, or even an editor restart and another try)
 
    1. Search Everywhere In VSCode
 

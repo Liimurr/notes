@@ -17,7 +17,7 @@ Procedure
    
    1. FIRST, using the utility blueprint widget, refresh all DataAssets and Blueprint Structs. (refreshing blueprint nodes before DataAssets or BlueprintStruct assets can cause blueprint node corruption)
 
-   2. THEN Refresh all blueprint nodes using ``RefeshAllNodes`` plugin (this works on Blueprints only)
+   2. THEN Refresh all blueprint nodes using `RefeshAllNodes <https://github.com/nachomonkey/RefreshAllNodes>`_ plugin (this works on Blueprints only)
 
 2. Find all instanced assets that failed to update (Some assets may need a second try, or even an editor restart and another try)
 

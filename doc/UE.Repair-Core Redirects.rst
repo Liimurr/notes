@@ -66,9 +66,9 @@ Undo Changes With Git
 Because this process involves changes to many assets (Refresh all nodes can affect hundreds of files), you will be more likely to need to undo changes by directory or by pattern rather than individual files.
 For example, to undo all unstaged changes in the Content folder, but exclude uassets prefixed with `DT_WP_` you would run the following:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      git restore -- 'Content/' ':(exclude)**/DT_WP_*.uasset'
+   git restore -- 'Content/' ':(exclude)**/DT_WP_*.uasset'
 
 See (`git's pathspec and how to use it <https://css-tricks.com/git-pathspecs-and-how-to-use-them/>`_) for more information on using pathspec patterns with git commands.
 

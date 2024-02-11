@@ -103,14 +103,14 @@ The following powershell script can be used for this.
         )
       
         # Get enums from .h files
-        $enums = Get-ChildItem -Path "$Dir" -Filter *.h | ForEach-Object {
+        $enums = Get-ChildItem -Path $Dir -Filter *.h | ForEach-Object {
            Get-Content $_.FullName | Select-String -Pattern 'enum\s+class\s+(E\w+)\s*:\s*uint8' -AllMatches | ForEach-Object {
               $_.Matches.Groups[1].Value
            }
         }
       
         # Get structs from .h files
-        $structs = Get-ChildItem -Path 'D:\game_skills_trainer\Plugins\KovaaKCore\Source\KovaaKProfileModels\Public' -Filter *.h | ForEach-Object {
+        $structs = Get-ChildItem -Path $Dir -Filter *.h | ForEach-Object {
            Get-Content $_.FullName | Select-String -Pattern 'struct\s+[A-Z]+_[A-Z]+\s+F(\w+)' -AllMatches | ForEach-Object {
               $_.Matches.Groups[1].Value
            }

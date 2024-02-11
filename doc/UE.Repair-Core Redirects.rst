@@ -181,7 +181,7 @@ The following powershell script can be used for this.
          }
       )
 
-      .\Generate-Redirects.ps1 -Modules $modules
+      .\Get-MovedModuleRedirects.ps1 -Modules $modules
 
 See Also
 --------

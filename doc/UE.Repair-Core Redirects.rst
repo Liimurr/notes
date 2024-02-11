@@ -72,6 +72,116 @@ For example, to undo all unstaged changes in the Content folder, but exclude uas
 
 See (`git's pathspec and how to use it <https://css-tricks.com/git-pathspecs-and-how-to-use-them/>`_) for more information on using pathspec patterns with git commands.
 
+Powershell Generate Core Redirects for Directory
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+When renaming modules it can be useful to generate core redirects for all enums and structs in the module's directory.
+The following powershell script can be used for this.
+(TODO: update as needed with further redirect types)
+
+.. dropdown:: Script
+   
+   .. code-block:: powershell
+      :caption: Powershell
+
+         class ModuleInfo {
+         [string]$OldModule
+         [string]$NewModule
+         [string]$Dir
+      }
+
+      param (
+         [Parameter(Mandatory=$true)]
+         [ModuleInfo[]]$Modules
+      )
+
+      function Get-NativeEnumsAndStructs {
+         [CmdletBinding()]
+         param (
+            [string]$Dir
+         )
+
+         # Get enums from .h files
+         $enums = Get-ChildItem -Path "$Dir" -Filter *.h | ForEach-Object {
+            Get-Content $_.FullName | Select-String -Pattern 'enum\s+class\s+E\w+\s*:\s*uint8' -AllMatches | ForEach-Object {
+                  $_.Matches.Value -replace '.*enum\s+class\s+([^\s]+).*', '$1'
+            }
+         }
+
+         # Get structs from .h files
+         $structs = Get-ChildItem -Path "$Dir" -Filter *.h | ForEach-Object {
+            Get-Content $_.FullName | Select-String -Pattern 'struct\s+F(\w+)' -AllMatches | ForEach-Object {
+                  $_.Matches.Value -replace '.*struct\s+F(\w+).*', '$1'
+            }
+         }
+
+         # Return enums and structs as an array
+         return @{
+            Enums = $enums
+            Structs = $structs
+         }
+      }
+
+      function ConvertTo-Redirects {
+         [CmdletBinding()]
+         param (
+            [hashtable]$EnumsAndStructs,
+            [string]$OldModule,
+            [string]$NewModule
+         )
+
+         # Initialize arrays to store the wrapped enums and structs
+         $wrappedEnums = @()
+         $wrappedStructs = @()
+
+         # Wrap each enum in the specified format
+         foreach ($enum in $EnumsAndStructs.Enums) {
+            $enumRedirect = "+EnumRedirects=(OldName=`"/Script/$OldModule.$enum`",NewName=`"/Script/$NewModule.$enum`")"
+            $wrappedEnums += $enumRedirect
+         }
+
+         # Wrap each struct in the specified format
+         foreach ($struct in $EnumsAndStructs.Structs) {
+            $structRedirect = "+StructRedirects=(OldName=`"/Script/$OldModule.$struct`",NewName=`"/Script/$NewModule.$struct`")"
+            $wrappedStructs += $structRedirect
+         }
+
+         # Return the arrays of wrapped enums and structs
+         return @{
+            Enums = $wrappedEnums
+            Structs = $wrappedStructs
+         }
+      }
+
+      foreach ($module in $Modules) {
+         $enumsAndStructs = Get-NativeEnumsAndStructs -Dir $module.Dir
+         $redirects = ConvertTo-Redirects -EnumsAndStructs $enumsAndStructs -OldModule $module.OldModule -NewModule $module.NewModule
+         Write-Host @"
+      ; $($module.NewModule)
+      ; ==================================
+      $($redirects.Enums -join "`n")
+      $($redirects.Structs -join "`n")
+      "@
+      }
+
+   .. code-block:: powershell
+      :caption: Usage
+
+      $modules = @(
+         [ModuleInfo]@{
+            OldModule = "OldModule"
+            NewModule = "NewModule"
+            Dir = "C:\Path\To\OldModule"
+         },
+         [ModuleInfo]@{
+            OldModule = "OldModule2"
+            NewModule = "NewModule2"
+            Dir = "C:\Path\To\OldModule2"
+         }
+      )
+
+      .\Generate-Redirects.ps1 -Modules $modules
+
 See Also
 --------
 .. card::

@@ -72,8 +72,8 @@ For example, to undo all unstaged changes in the Content folder, but exclude uas
 
 See (`git's pathspec and how to use it <https://css-tricks.com/git-pathspecs-and-how-to-use-them/>`_) for more information on using pathspec patterns with git commands.
 
-Powershell Generate Core Redirects for Directory
-++++++++++++++++++++++++++++++++++++++++++++++++
+Powershell Generate Core Redirects for Module Rename
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 When renaming modules it can be useful to generate core redirects for all enums and structs in the module's directory.
 The following powershell script can be used for this. Obviously, this will not work with blueprint assets or data tables, but it can be useful for c++ modules.

@@ -7,17 +7,18 @@ Prerequisites
 -------------
 Create an editor utility blueprint widget that performs the following:
 
-1. Rename all assets to a new name with a hash appended (this will force the editor to update the asset core redirect references within the asset)
+1. Rename all assets to a new name with a hash appended (this will force the editor to update the asset core redirect references within the asset -- the hash will make looking for deprecated assets easier in case the editor fails to update some asset references)
 2. Rename all the assets back to their original name.
 
 Procedure
 ---------
 1. Refresh all assets
    
-   1. Refresh all blueprint nodes using ``RefeshAllNodes`` plugin (this works on Blueprints only)
-   2. Refresh all instanced (non-blueprint) assets
-      
+   1. FIRST Refresh all instanced (non-blueprint) assets. (refreshing blueprint nodes before instanced assets can cause blueprint node corruption)
+
       run the renaming widget utility on all non blueprint assets (most notably: DataAssets and Blueprint Structs)
+
+   2. THEN Refresh all blueprint nodes using ``RefeshAllNodes`` plugin (this works on Blueprints only)
 
 2. Find all in0stanced assets that failed to update (Some assets may need a second try, or even an editor restart and another try)
 
@@ -45,7 +46,7 @@ Use the following steps to manually repair row structs:
 1. Export data tables that use the row struct to a CSV
 2. Create new data tables with the new struct (make sure the new struct inherits from FTableRowBase if it's a c++ USTRUCT)
 3. Import the orignal data tables' CSVs into the new data tables
-4. Use a Package & Struct redirect for the old data table to the new data table
+4. Use a Package & Struct redirect for the old data table to the new data table (note the redirect example below assumes you are moving from a blueprint struct to a c++ struct (``/Game/`` = blueprints and ``/Script/`` = c++)
 
    .. code-block:: ini
       :caption: DefaultEngine.ini
@@ -53,7 +54,7 @@ Use the following steps to manually repair row structs:
       [CoreRedirects]
       +PackageRedirects=(OldName="/Game/<Module>.<OldDataTableName>", NewName="/Game/<Module>.<NewDataTableName>")
       ; Struct redirect for DataTableRows will not work. (might work in UE-5.1)
-      ;+StructRedirects=(OldName="/Game/<Module>.<OldRowStructName>", NewName="/Game/<Module>.<NewRowStructName>")
+      ;+StructRedirects=(OldName="/Game/<Module>.<OldRowStructName>", NewName="/Script/<Module>.<NewRowStructName>")
 
 5. Manually replace any remaining references to the old data tables and row struct in blueprints 
 

@@ -2,6 +2,7 @@ UE.Repair-Core Redirects
 ========================
 
 Use the following steps to repair core redirects in the project.
+Warning: this process is not comprehensive and may require additional steps to repair all assets.
 
 Prerequisites
 -------------
@@ -14,9 +15,9 @@ Procedure
 ---------
 1. Refresh all assets
    
-   1. FIRST Refresh all instanced (non-blueprint) assets. (refreshing blueprint nodes before instanced assets can cause blueprint node corruption)
+   1. FIRST Refresh all DataAssets and Blueprint Structs. (refreshing blueprint nodes before DataAssets or BlueprintStruct assets can cause blueprint node corruption)
 
-      run the renaming widget utility on all non blueprint assets (most notably: DataAssets and Blueprint Structs)
+      run the renaming widget utility on all non blueprint assets (most notably:)
 
    2. THEN Refresh all blueprint nodes using ``RefeshAllNodes`` plugin (this works on Blueprints only)
 

@@ -62,7 +62,7 @@ Procedure
       :caption: PowerShell
 
       $PrivateKeyFile = '.vagrant.d/insecure_private_key'
-
+      
       New-Item -Path ./inventory/vagrant.ini -ItemType File -Force -Value @"
       [webservers]
       testserver ansible_port=2222
@@ -72,5 +72,18 @@ Procedure
       ansible_user=vagrant
       ansible_private_key_file=$PrivateKeyFile
       "@
+      ---
+      $remoteip=ip route | grep default | awk '{print $3}'
+      $port=55986
+      $user=vagrant
+      New-Item -Path ./inventory/vagrant.ini -ItemType File -Force -Value @"
+      [webservers]
+      testserver ansible_port=$port
+
+      [webservers:vars]
+      ansible_host=$remoteip
+      ansible_user=$user
+      "@
+
 
    

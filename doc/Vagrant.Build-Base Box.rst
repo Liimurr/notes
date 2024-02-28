@@ -17,21 +17,6 @@ Prerequisites
 
 .. tab-set:: 
 
-   .. tab-item:: Provider: VirtualBox
-      :sync: virtualbox
-
-      .. dropdown:: Disable-HyperV [3]_
-         :open:
-         
-         .. warning::
-
-            This step may be unnecessary in later versions of VirtualBox. Try skipping this step first, and if you encounter issues, then perform this step.
-
-         .. code-block:: powershell
-            :caption: PowerShell (Host Machine)
-
-            Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
-
    .. tab-item:: Provider: VMWare
       :sync: vmware
 
@@ -307,6 +292,8 @@ See Also
    - `Download List of Registry Keys <https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250>`_
    - `Example: Using WSL Host with Windows Guest VM <https://discuss.hashicorp.com/t/winrm-port-does-not-work-in-vagrantfile/54601>`_
    - `Setup WinRM on Windows <https://github.com/AlbanAndrieu/ansible-windows/blob/master/files/ConfigureRemotingForAnsible.ps1>`_
+   - https://woshub.com/using-psremoting-winrm-non-domain-workgroup/
+   - https://kevrocks67.github.io/blog/powershell-remote-management-from-linux.html
    
    **Footnotes**
    

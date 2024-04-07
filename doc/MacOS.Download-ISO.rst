@@ -7,7 +7,7 @@ Requires MacOS Operating System
 Procedure
 ---------
 .. code-block:: shell
-   :caption: "List Available Installers (take note of the size)"
+   :caption: List Available Installers (take note of the size)
 
    # List all available MacOS versions
    softwareupdate --list-full-installer

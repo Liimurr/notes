@@ -7,6 +7,7 @@ SysAdmin
    Install-Powershell.rst
    Install-WSL.rst
    Install-Vagrant.rst
+   MacOS.Download-ISO.rst
    Vagrant.Build-Base Box.rst
    Vagrant.Export-Base Box.rst
    Vagrant.Initialize-VM.rst

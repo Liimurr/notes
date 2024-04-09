@@ -52,8 +52,8 @@ Prerequisites
 
       .. card:: create a macOS vm
 
-         open parallels
-         download macOS
+         1. open parallels
+         2. download macOS
       
       .. code-block:: 
          :caption: shell (Host Machine)
@@ -70,8 +70,8 @@ Prerequisites
 
       .. card:: register and auto rename the copied vm
 
-         open and/or run ~/vagrant/base-boxes/$VM/macOS.macvm 
-         parallels will automatically rename it and give it a new mac address.
+         1. open and/or run ~/vagrant/base-boxes/$VM/macOS.macvm 
+         2. parallels will automatically rename it and give it a new mac address.
 
       .. code-block:: 
          :caption: shell (Host Machine)
@@ -86,8 +86,8 @@ Prerequisites
 
       .. card:: edit the vagrant file and meta data
 
-         edit meta data "name" field
-         remove private key logic in `Vagrantfile` if using the insecure public key (recommended — otherwise follow the steps outlined in https://kb.parallels.com/en/129720 to create and use private key)
+         1. edit meta data "name" field
+         2. remove private key logic in `Vagrantfile` if using the insecure public key (recommended — otherwise follow the steps outlined in https://kb.parallels.com/en/129720 to create and use private key)
 
       .. code-block:: 
          :caption: shell (Host Machine)

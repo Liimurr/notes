@@ -38,6 +38,71 @@ Prerequisites
 
             vagrant plugin install vagrant-vmware-desktop 
 
+   .. tab-item:: Provider: Parallels (HostOS: MacOS)
+
+      .. code-block:: shell
+         :caption: shell (Host Machine)
+
+         # install vagrant 
+         brew tap hashicorp/tap
+         brew install hashicorp/tap/hashicorp-vagrant
+
+         # install vagrant parallels plugin
+         vagrant plugin install vagrant-parallels
+
+      .. card:: create a macOS vm
+
+         open parallels
+         download macOS
+      
+      .. code-block:: 
+         :caption: shell (Host Machine)
+
+         VM=macos-14.4.1
+
+         # copy vm to a new location
+         cd ~/Parallels
+         mkdir ~/vagrant
+         mkdir ~/vagrant/base-boxes/
+         mkdir ~/vagrant/base-boxes/$VM
+         cp -r macOS.macvm ~/vagrant/base-boxes/$VM/macOS.macvm
+         cd ~/vagrant/base-boxes/$VM/
+
+      .. card:: register and auto rename the copied vm
+
+         open and/or run ~/vagrant/base-boxes/$VM/macOS.macvm 
+         parallels will automatically rename it and give it a new mac address.
+
+      .. code-block:: 
+         :caption: shell (Host Machine)
+
+         # give the auto renamed vm a better name
+         prlctl set 'macOS (1)' —name $VM
+
+         # download metadata and vagrant file
+         cd ~/vagrant/base-boxes/$VM
+         curl -o metadata.json https://kb.parallels.com/Attachments/kcs-191881/metadata.json
+         curl -o Vagrantfile https://kb.parallels.com/Attachments/kcs-191881/Vagrantfile
+
+      .. card:: edit the vagrant file and meta data
+
+         edit meta data "name" field
+         remove private key logic in `Vagrantfile` if using the insecure public key (recommended — otherwise follow the steps outlined in https://kb.parallels.com/en/129720 to create and use private key)
+
+      .. code-block:: 
+         :caption: shell (Host Machine)
+
+         # create vagrant box
+         tar cvzf $VM.box ./$VM.macvm  ./Vagrantfile ./metadata.json
+         vagrant box add $VM.box --name $VM
+
+         # test vagrant file
+         cd ~/vagrant
+         mkdir ~/vagrant/test-$VM
+         cd ~/vagrant/test-$VM
+         vagrant init $VM
+         vagrant up —provider=parallels
+
 Procedure
 ---------
 Initialize-VM Virtual Hardware

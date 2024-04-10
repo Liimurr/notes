@@ -23,7 +23,6 @@ Bare Metal
 ++++++++++
 1. install java 17
 2. install jenkins
-   
    recommended: when installing, setup jenkins as a service that is initialized on startup
 
 Docker
@@ -38,7 +37,7 @@ Install-Jenkins Agent
 2. install and enable ssh ssh-server
 3. on the jenkins controller:
    i. generate an ssh key specifically for this agent
-      (recommended: use the agent's name as the ssh-key file-name)
+      recommended: use the agent's name as the ssh-key file-name
    ii. copy ssh key into the jenkin agent's authorized keys file
    iii. add generated ssh key to jenkin controller's ssh config
       - use the agent's network device id as the host

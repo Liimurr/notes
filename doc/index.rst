@@ -5,6 +5,6 @@ Liimurr's Notes
    :maxdepth: 2
    :caption: Contents:
 
-   Index.SysAdmin.rst
-   Index.Unreal.rst
-   Index.Experiments.rst
+   src/Index.SysAdmin.rst
+   src/Index.Unreal.rst
+   src/Index.Experiments.rst

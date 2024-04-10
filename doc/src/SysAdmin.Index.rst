@@ -15,4 +15,5 @@ SysAdmin
    Build-Ansible Control Node.rst
    Build-Ansible Agent Node.rst
    Test-Ansible.rst
+   Jenkins.Index.rst
    Add-Submodule to Github Actions Checkout.rst

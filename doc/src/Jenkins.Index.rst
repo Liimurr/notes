@@ -23,7 +23,8 @@ Bare Metal
 ++++++++++
 1. install java 17
 2. install jenkins
-   (recommended) when installing, setup jenkins as a service that is initialized on startup
+   
+   recommended: when installing, setup jenkins as a service that is initialized on startup
 
 Docker
 ++++++

@@ -45,59 +45,21 @@ VM.ConvertTo-Box File
       .. code-block:: powershell
          :caption: PowerShell (Script) (Host Machine)
 
-         param ( 
-           # Path to the virtual machine
-           [Parameter(Mandatory=$true)] 
-           [string]$VMDir,
-         
-           [Parameter(Mandatory=$true)]
-           [string]$BoxDir,
-         
-           # Name of the virtual machine
-           [Parameter(Mandatory=$true)] 
-           [string]$VMName,
-         
-           # Name of the virtual machine provider
-           [Parameter(Mandatory=$true)] 
-           [string]$VMProvider
-         )
-         
-         function Get-VMWarePath {
-           @( 
-             [System.Environment]::GetFolderPath('ProgramFiles'),
-             [System.Environment]::GetFolderPath('ProgramFilesX86') 
-           ) | ForEach-Object { 
-             $ConditionalReturnValue = Join-Path $_ 'VMware' 'VMware Workstation'
-             if ($ConditionalReturnValue | Test-Path -ErrorAction SilentlyContinue) { return $ConditionalReturnValue }
-           }
-         }
-         $VMWarePath = Get-VMWarePath
-         $VMDiskManager = ($VMWarePath) ? $(Join-Path $VMWarePath 'vmware-vdiskmanager.exe') : $null
-         $VMDK = "$VMDir/$VMName.vmdk"
-         & "$VMDiskManager" -d "$VMDK"
-         & "$VMDiskManager" -k "$VMDK"
-         
-         $MetaData = @"
+         $VM='windows-10'
+         $VMDir="C:/development/assets/vms/$VM"
+         $BaseBoxDir='C:/development/assets/vagrant/base-boxes'
+         Set-Alias 'vmware-vdiskmanager' 'C:/Program Files (x86)/VMware/VMware Workstation/vmware-vdiskmanager.exe'
+         Set-Location $VMDir
+         vmware-vdiskmanager -d ./$VM.vmdk
+         vmware-vdiskmanager -d ./$VM.vmdk
+         Set-Location $BaseBoxDir
+         $content = @"
          {
-           "provider": "$VMProvider"
+           "provider": "vmware-desktop"
          }
          "@
-         
-         $Files = Get-ChildItem -Path $VMDir
-         $FilesToArchive = @()
-         foreach ($File in $Files) {
-           $Extension = $File.Extension.TrimStart('.')
-           if ($Extension -in @('nvram', 'vmsd', 'vmx', 'vmxf', 'vmdk') -or  $File.Name -eq 'metadata.json') {
-             $FilesToArchive += (Resolve-Path -Path $File.FullName -RelativeBasePath $VMDir -Relative).Substring(2)
-           }
-         }
-         Set-Content -Path (Join-Path $VMDir 'metadata.json') -Value $MetaData -Force
-         tar cvzf (Join-Path $BoxDir "$VMName.box") --directory=$VMDir $FilesToArchive
-
-      .. code-block:: powershell
-         :caption: PowerShell (Usage) (Host Machine)
-
-         & (Join-Path '.' 'script.ps1') -VMDir (Join-Path 'E:' 'assets' 'vms' 'win-11') -BoxDir (Join-Path 'E:' 'assets' 'vagrant' 'boxes') -VMName 'win-11' -VMProvider 'vmware_desktop'
+         Set-Content -Path "$VMDir/metadata.json" -Value $content
+         tar -v -z -f ./$VM.box -C $VMDir -c *.nvram *.vmsd *.vmx *.vmxf *.vmdk metadata.json 
 
 Next Steps
 ----------

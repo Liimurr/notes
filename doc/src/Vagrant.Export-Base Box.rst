@@ -55,7 +55,7 @@ VM.ConvertTo-Box File
          Set-Location $BaseBoxDir
          $content = @"
          {
-           "provider": "vmware-desktop"
+           "provider": "vmware_desktop"
          }
          "@
          Set-Content -Path "$VMDir/metadata.json" -Value $content

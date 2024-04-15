@@ -51,7 +51,7 @@ VM.ConvertTo-Box File
          Set-Alias 'vmware-vdiskmanager' 'C:/Program Files (x86)/VMware/VMware Workstation/vmware-vdiskmanager.exe'
          Set-Location $VMDir
          vmware-vdiskmanager -d ./$VM.vmdk
-         vmware-vdiskmanager -d ./$VM.vmdk
+         vmware-vdiskmanager -k ./$VM.vmdk
          Set-Location $BaseBoxDir
          $content = @"
          {

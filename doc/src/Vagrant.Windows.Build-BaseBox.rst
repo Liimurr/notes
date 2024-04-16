@@ -97,10 +97,13 @@ Procedure
 .. code-block:: powershell
    :caption: Test-Base Box (Agent - Host-Windows)
 
-   # open port 55985 for WinRM testing
+   # startup vagrant vm
+   $VM='windows-10'
    $VagrantDir="C:/development/assets/vagrant/vms/$VM"
    Set-Location $VagrantDir
    vagrant up
+
+   # open port 55985 for WinRM testing
    New-NetFirewallRule -DisplayName "Vagrant WinRM" -Direction Inbound -LocalPort 55985 -Protocol TCP -Action Allow
 
 .. dropdown:: Test-Base Box (Controller - Host-Ubuntu):

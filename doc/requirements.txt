@@ -1,7 +1,7 @@
+myst_parser
 sphinx-design 
 pydata-sphinx-theme
 sphinx-tabs
-myst_parser
 nbsphinx
 sphinx-copybutton
 sphinx-rtd-theme

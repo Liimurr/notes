@@ -93,3 +93,31 @@ Procedure
    vagrant init $VM
    vagrant up
    vagrant winrm --Command 'Write-Host $env:USERPROFILE'
+
+.. code-block:: powershell
+   :caption: Test-Base Box (Agent - Host-Windows)
+
+   # open port 55985 for WinRM testing
+   $VagrantDir="C:/development/assets/vagrant/vms/$VM"
+   Set-Location $VagrantDir
+   vagrant up
+   New-NetFirewallRule -DisplayName "Vagrant WinRM" -Direction Inbound -LocalPort 55985 -Protocol TCP -Action Allow
+
+.. dropdown:: Test-Base Box (Controller - Host-Ubuntu):
+   :open:
+
+   .. code-block:: shell
+      :caption: install pywinrm
+
+      pip install pywinrm
+
+   .. code-block:: shell
+      :caption: test winrm
+
+      import winrm;
+      
+      agent_ip = '192.168.4.124'
+      vagrant_port = '55985'
+      session = winrm.Session("$agent_ip:$vagrant_port", auth=('vagrant', 'vagrant'))
+      result = session.run_ps('echo "Hello, World!"')
+      print(result.std_out.decode('utf-8'))

@@ -94,33 +94,39 @@ Procedure
    vagrant up
    vagrant winrm --Command 'Write-Host $env:USERPROFILE'
 
-.. code-block:: powershell
-   :caption: Test-Base Box (Agent - Host-Windows)
+.. card:: Test-UbuntuController/WindowsAgent
 
-   # startup vagrant vm
-   $VM='windows-10'
-   $VagrantDir="C:/development/assets/vagrant/vms/$VM"
-   Set-Location $VagrantDir
-   vagrant up
+   .. dropdown:: Windows Agent
+      :open:
 
-   # open port 55985 for WinRM testing
-   New-NetFirewallRule -DisplayName "Vagrant WinRM" -Direction Inbound -LocalPort 55985 -Protocol TCP -Action Allow
+      .. code-block:: powershell 
+         :caption: Open Vagrant WinRM Port
 
-.. dropdown:: Test-Base Box (Controller - Host-Ubuntu):
-   :open:
+         New-NetFirewallRule -DisplayName "Vagrant WinRM" -Direction Inbound -LocalPort 55985 -Protocol TCP -Action Allow
 
-   .. code-block:: shell
-      :caption: install pywinrm
+      .. code-block:: powershell
+         :caption: Startup Vagrant VM
 
-      pip install pywinrm
+         $VM='windows-10'
+         $VagrantDir="C:/development/assets/vagrant/vms/$VM"
+         Set-Location $VagrantDir
+         vagrant up
 
-   .. code-block:: shell
-      :caption: test winrm
+   .. dropdown:: Ubuntu Controller
+      :open:
 
-      import winrm;
-      
-      agent_ip = '192.168.4.124'
-      vagrant_port = '55985'
-      session = winrm.Session("$agent_ip:$vagrant_port", auth=('vagrant', 'vagrant'))
-      result = session.run_ps('echo "Hello, World!"')
-      print(result.std_out.decode('utf-8'))
+      .. code-block:: shell
+         :caption: install pywinrm
+
+         pip install pywinrm
+
+      .. code-block:: shell
+         :caption: test winrm
+
+         import winrm;
+         
+         agent_ip = '192.168.4.124'
+         vagrant_port = '55985'
+         session = winrm.Session("$agent_ip:$vagrant_port", auth=('vagrant', 'vagrant'))
+         result = session.run_ps('echo "Hello, World!"')
+         print(result.std_out.decode('utf-8'))

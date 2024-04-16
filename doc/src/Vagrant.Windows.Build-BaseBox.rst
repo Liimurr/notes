@@ -15,15 +15,13 @@ Prerequisites
 Procedure
 ---------
 
-.. dropdown:: Build-VM (Host):
-   :open:
+.. card:: Build-VM (Windows Host):
 
    1. maxmium disk size: 250GB
    2. store virtual disk as a single file: ✅
    3. settings > options > advanced > Disable side channel mitigations for Hyper-V enabled hosts: ✅
    
-.. dropdown:: Build-VM (Guest):
-   :open:
+.. card:: Build-VM (Windows Guest):
    
    1. install operating system
    2. use offline account
@@ -32,7 +30,7 @@ Procedure
    5. install vmware tools
 
 .. code-block:: powershell
-   :caption: Post-Install Script (Guest)
+   :caption: Post-Install Script (Windows Guest)
 
    # misc
    Set-NetConnectionProfile -NetworkCategory Private
@@ -49,8 +47,7 @@ Procedure
    Enable-PSRemoting -Force
    sc.exe config "WinRM" start= auto
 
-.. dropdown:: Add-Files to VM Directory (Host):
-   :open:
+.. card:: Add-Files to VM Directory (Windows Host):
 
    .. code-block:: json
       :caption: metadata.json
@@ -69,7 +66,7 @@ Procedure
 
 
 .. code-block:: powershell
-   :caption: Export-Base Box (Host):
+   :caption: Export-Base Box (Windows Host):
 
    $VM='windows-10'
    $VMDir="C:/development/assets/vms/$VM"
@@ -84,7 +81,7 @@ Procedure
    vagrant box add ./$VM.box --name=$VM
 
 .. code-block:: powershell
-   :caption: Test-Base Box (Host)
+   :caption: Test-Base Box (Windows Host)
 
    $VM='windows-10'
    $VagrantDir="C:/development/assets/vagrant/vms/$VM"
@@ -96,8 +93,7 @@ Procedure
 
 .. card:: Test-UbuntuController/WindowsAgent
 
-   .. dropdown:: Windows Agent
-      :open:
+   .. card:: Windows Agent
 
       .. code-block:: powershell 
          :caption: Open Vagrant WinRM Port
@@ -112,8 +108,7 @@ Procedure
          Set-Location $VagrantDir
          vagrant up
 
-   .. dropdown:: Ubuntu Controller
-      :open:
+   .. card:: Ubuntu Controller
 
       .. code-block:: shell
          :caption: install pywinrm

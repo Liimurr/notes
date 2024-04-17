@@ -3,7 +3,6 @@ Vagrant Base Box (Windows)
 
 Prerequisites
 -------------
-- VMWare Workstation Pro
 - Windows Pro or Enterprise (Windows Home does not support Hyper-V)
 - Vagrant
 
@@ -11,6 +10,10 @@ Prerequisites
    :caption: Hyper-V Enabled
 
    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+
+.. card:: VMware Workstation Pro
+
+   https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
 
 .. code-block:: powershell
    :caption: Vagrant VMWare Plugin
@@ -132,3 +135,12 @@ Procedure
          session = winrm.Session("$agent_ip:$vagrant_port", auth=('vagrant', 'vagrant'))
          result = session.run_ps('echo "Hello, World!"')
          print(result.std_out.decode('utf-8'))
+
+See Also
+--------
+.. card::
+
+   **External Links**
+
+   - https://developer.hashicorp.com/vagrant/docs/providers/vmware/boxes
+   - https://developer.hashicorp.com/vagrant/docs/providers/vmware/installation

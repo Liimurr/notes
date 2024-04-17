@@ -1,5 +1,5 @@
-Build Windows Base Box for Vagrant
-==================================
+Vagrant Base Box (Windows)
+==========================
 
 Prerequisites
 -------------
@@ -53,17 +53,16 @@ Procedure
       :caption: metadata.json
 
       {
-         "provider": "vmware_desktop"
+        "provider": "vmware_desktop"
       }
 
    .. code-block:: ruby
       :caption: Vagrantfile
 
       Vagrant.configure("2") do |config|
-      config.vm.guest = :windows
-      config.vm.communicator = "winrm"
+        config.vm.guest = :windows
+        config.vm.communicator = "winrm"
       end
-
 
 .. code-block:: powershell
    :caption: Export-Base Box (Windows Host):

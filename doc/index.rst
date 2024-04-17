@@ -8,4 +8,3 @@ Liimurr's Notes
    src/SysAdmin.Index.rst
    src/Unreal.Index.rst
    src/Experiments.Index.rst
-   src/Vagrant.Windows.Build-BaseBox.rst

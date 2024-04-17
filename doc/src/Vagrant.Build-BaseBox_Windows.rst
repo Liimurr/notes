@@ -4,7 +4,10 @@ Vagrant Base Box (Windows)
 Prerequisites
 -------------
 - Windows Pro or Enterprise (Windows Home does not support Hyper-V)
-- Vagrant
+
+.. card:: Vagrant
+
+   https://developer.hashicorp.com/vagrant/install
 
 .. code-block:: powershell
    :caption: Hyper-V Enabled

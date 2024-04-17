@@ -95,12 +95,12 @@ Procedure
    .. card:: Windows Agent
 
       .. code-block:: powershell 
-         :caption: Open Vagrant WinRM Port
+         :caption: Open Vagrant WinRM Port (Agent - Guest)
 
          New-NetFirewallRule -DisplayName "Vagrant WinRM" -Direction Inbound -LocalPort 55985 -Protocol TCP -Action Allow
 
       .. code-block:: powershell
-         :caption: Startup Vagrant VM
+         :caption: Startup Vagrant VM (Agent - Host)
 
          $VM='windows-10'
          $VagrantDir="C:/development/assets/vagrant/vms/$VM"

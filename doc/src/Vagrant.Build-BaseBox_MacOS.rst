@@ -8,7 +8,7 @@ Prerequisites
 
 .. card:: Vagrant
    
-   .. code-block::shell
+   .. code-block:: shell
       :caption: Install Vagrant
 
       brew tap hashicorp/tap

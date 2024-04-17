@@ -3,7 +3,8 @@ Vagrant Base Box (MacOS)
 
 Prerequisites
 -------------
-- Parallels
+
+Install Parallels
 
 .. card:: Vagrant
    
@@ -55,11 +56,11 @@ Procedure
 .. card:: Build-VM 
 
    1. install operating system
-   3. username: `vagrant`
-   4. password: `vagrant`
-   5. install Parallels Tools
-   6. `sudo visudo` and add the following line: `vagrant ALL=(ALL) NOPASSWD: ALL`
-   7. System Settings > General > Sharing > Enable Remote Login: ✅, and set `Full disk access to users` to allow `All Users`.
+   2. username: `vagrant`
+   3. password: `vagrant`
+   4. install Parallels Tools
+   5. `sudo visudo` and add the following line: `vagrant ALL=(ALL) NOPASSWD: ALL`
+   6. System Settings > General > Sharing > Enable Remote Login: ✅, and set `Full disk access to users` to allow `All Users`.
 
 .. card:: Add-Files to VM Directory (Windows Host):
 
@@ -89,7 +90,7 @@ Procedure
    :caption: test the vagrant box
 
    VM=macos-14.4.1
-   
+
    vagrant init $VM
    vagrant up
 

@@ -15,13 +15,13 @@ Prerequisites
 Procedure
 ---------
 
-.. card:: Build-VM (Windows Host):
+.. card:: Build-VM (Host):
 
    1. maxmium disk size: 250GB
    2. store virtual disk as a single file: ✅
    3. settings > options > advanced > Disable side channel mitigations for Hyper-V enabled hosts: ✅
    
-.. card:: Build-VM (Windows Guest):
+.. card:: Build-VM (Guest):
    
    1. install operating system
    2. use offline account
@@ -30,7 +30,7 @@ Procedure
    5. install vmware tools
 
 .. code-block:: powershell
-   :caption: Post-Install Script (Windows Guest)
+   :caption: Post-Install Script (Guest)
 
    # misc
    Set-NetConnectionProfile -NetworkCategory Private
@@ -47,7 +47,7 @@ Procedure
    Enable-PSRemoting -Force
    sc.exe config "WinRM" start= auto
 
-.. card:: Add-Files to VM Directory (Windows Host):
+.. card:: Add-Files to VM Directory (Host):
 
    .. code-block:: json
       :caption: metadata.json
@@ -65,7 +65,7 @@ Procedure
       end
 
 .. code-block:: powershell
-   :caption: Export-Base Box (Windows Host):
+   :caption: Export-Base Box (Host):
 
    $VM='windows-10'
    $VMDir="C:/development/assets/vms/$VM"
@@ -80,7 +80,7 @@ Procedure
    vagrant box add ./$VM.box --name=$VM
 
 .. code-block:: powershell
-   :caption: Test-Base Box (Windows Host)
+   :caption: Test-Base Box (Host)
 
    $VM='windows-10'
    $VagrantDir="C:/development/assets/vagrant/vms/$VM"
@@ -95,12 +95,12 @@ Procedure
    .. card:: Windows Agent
 
       .. code-block:: powershell 
-         :caption: Open Vagrant WinRM Port (Agent - Guest)
+         :caption: Open Vagrant WinRM Port (Guest)
 
          New-NetFirewallRule -DisplayName "Vagrant WinRM" -Direction Inbound -LocalPort 55985 -Protocol TCP -Action Allow
 
       .. code-block:: powershell
-         :caption: Startup Vagrant VM (Agent - Host)
+         :caption: Startup Vagrant VM (Host)
 
          $VM='windows-10'
          $VagrantDir="C:/development/assets/vagrant/vms/$VM"

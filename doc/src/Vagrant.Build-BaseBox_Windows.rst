@@ -8,20 +8,26 @@ Prerequisites
 - Vagrant
 
 .. code-block:: powershell
-   :caption: Enable Hyper-V
+   :caption: Hyper-V Enabled
 
    Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+
+.. code-block:: powershell
+   :caption: Vagrant VMWare Plugin
+
+   vagrant plugin install vagrant-vmware-desktop
+   vagrant plugin update vagrant-vmware-desktop
 
 Procedure
 ---------
 
-.. card:: Build-VM (Host):
+.. card:: Build-VM (Host)
 
    1. maxmium disk size: 250GB
    2. store virtual disk as a single file: ✅
    3. settings > options > advanced > Disable side channel mitigations for Hyper-V enabled hosts: ✅
    
-.. card:: Build-VM (Guest):
+.. card:: Build-VM (Guest)
    
    1. install operating system
    2. use offline account
@@ -47,7 +53,7 @@ Procedure
    Enable-PSRemoting -Force
    sc.exe config "WinRM" start= auto
 
-.. card:: Add-Files to VM Directory (Host):
+.. card:: Add-Files to VM Directory (Host)
 
    .. code-block:: json
       :caption: metadata.json
@@ -65,7 +71,7 @@ Procedure
       end
 
 .. code-block:: powershell
-   :caption: Export-Base Box (Host):
+   :caption: Export-Base Box (Host)
 
    $VM='windows-10'
    $VMDir="C:/development/assets/vms/$VM"

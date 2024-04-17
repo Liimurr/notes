@@ -81,7 +81,7 @@ Procedure
       end
 
 .. code-block:: shell
-   :caption: Package the VM
+   :caption: Export-Base Box (Host)
 
    VM=macos-14.4.1
 
@@ -89,7 +89,7 @@ Procedure
    vagrant box add $VM.box --name $VM
 
 .. code-block:: shell
-   :caption: test the vagrant box
+   :caption: Test-Base Box (Host)
 
    VM=macos-14.4.1
 

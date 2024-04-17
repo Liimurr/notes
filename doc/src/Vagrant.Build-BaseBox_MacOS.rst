@@ -89,6 +89,7 @@ Procedure
    :caption: test the vagrant box
 
    VM=macos-14.4.1
+   
    vagrant init $VM
    vagrant up
 

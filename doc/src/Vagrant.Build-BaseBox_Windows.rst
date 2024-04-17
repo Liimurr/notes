@@ -104,6 +104,7 @@ Procedure
 
          $VM='windows-10'
          $VagrantDir="C:/development/assets/vagrant/vms/$VM"
+
          Set-Location $VagrantDir
          vagrant up
 
@@ -116,11 +117,12 @@ Procedure
 
       .. code-block:: shell
          :caption: test winrm
-
-         import winrm;
          
          agent_ip = '192.168.4.124'
          vagrant_port = '55985'
+
+         import winrm
+
          session = winrm.Session("$agent_ip:$vagrant_port", auth=('vagrant', 'vagrant'))
          result = session.run_ps('echo "Hello, World!"')
          print(result.std_out.decode('utf-8'))

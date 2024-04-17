@@ -4,7 +4,7 @@ Vagrant Base Box (MacOS)
 Prerequisites
 -------------
 
-Install Parallels
+.. card:: Install Parallels
 
 .. card:: Vagrant
    

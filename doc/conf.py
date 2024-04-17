@@ -9,7 +9,7 @@
 project = 'Notes'
 copyright = ''
 author = 'Liam Murray'
-release = '0.4.0'
+release = '0.5.0'
 
 
 # -- General configuration ---------------------------------------------------

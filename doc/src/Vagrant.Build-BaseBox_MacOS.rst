@@ -61,8 +61,28 @@ Procedure
    2. username: `vagrant`
    3. password: `vagrant`
    4. install Parallels Tools
-   5. `sudo visudo` and add the following line: `vagrant ALL=(ALL) NOPASSWD: ALL`
-   6. System Settings > General > Sharing > Enable Remote Login: ✅, and set `Full disk access to users` to allow `All Users`.
+
+.. card:: Post-Install (Guest)
+   
+   .. card:: Passwordless Sudo
+   
+      1. run `sudo visudo`
+      2. add the following line: `vagrant ALL=(ALL) NOPASSWD: ALL`
+
+   .. card:: Enable SSH server
+
+      System Settings > General > Sharing > Enable Remote Login: ✅, and set `Full disk access to users` to allow `All Users`.
+
+   .. code-block:: shell
+      :caption: Install Vagrant SSH Key
+
+      sudo chmod go-w ~/
+      sudo mkdir -p ~/.ssh
+      sudo chmod 700 ~/.ssh
+      sudo touch ~/.ssh/authorized_keys
+      sudo chmod 600 ~/.ssh/authorized_keys
+      VAGRANT_PUB_URL="https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.pub"
+      curl -sSL "$VAGRANT_PUB_URL" | sudo tee -a ~/.ssh/authorized_keys >/dev/null
 
 .. card:: Add-Files to VM Directory (Windows Host):
 

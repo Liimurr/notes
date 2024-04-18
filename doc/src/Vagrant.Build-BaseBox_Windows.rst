@@ -18,7 +18,7 @@ Prerequisites
 
    https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
 
-.. code-block:: powershell
+.. code-block:: shell
    :caption: Vagrant VMWare Plugin
 
    vagrant plugin install vagrant-vmware-desktop

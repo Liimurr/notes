@@ -39,11 +39,6 @@ Procedure
       1. run `sudo visudo`
       2. add the following line: `vagrant ALL=(ALL) NOPASSWD: ALL`
       3. remove any line that contains `requiretty`
-   
-   .. card:: Remove UseDNS
-
-      1. edit `/etc/ssh/sshd_config` (`sudo nano /etc/ssh/sshd_config`)
-      2. set `UseDNS` to `no`
 
    .. code-block:: shell
       :caption: SSH Configuration
@@ -62,6 +57,11 @@ Procedure
       VAGRANT_PUB_URL="https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.pub"
       wget -qO- "$VAGRANT_PUB_URL" | sudo tee -a ~/.ssh/authorized_keys >/dev/null
 
+   .. card:: Remove UseDNS
+
+      1. edit `/etc/ssh/sshd_config` (`sudo nano /etc/ssh/sshd_config`)
+      2. set `UseDNS` to `no`
+      
 .. card:: Add-Files to VM Directory (Host):
 
    .. code-block:: json

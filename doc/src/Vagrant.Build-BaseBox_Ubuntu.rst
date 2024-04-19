@@ -51,6 +51,7 @@ Procedure
       # install vagrant ssh key
       sudo chmod go-w ~/
       sudo mkdir -p ~/.ssh
+      sudo chown -R vagrant:vagrant ~/.ssh
       sudo chmod 700 ~/.ssh
       sudo touch ~/.ssh/authorized_keys
       sudo chmod 600 ~/.ssh/authorized_keys
@@ -61,7 +62,7 @@ Procedure
 
       1. edit `/etc/ssh/sshd_config` (`sudo nano /etc/ssh/sshd_config`)
       2. set `UseDNS` to `no`
-      
+
 .. card:: Add-Files to VM Directory (Host):
 
    .. code-block:: json

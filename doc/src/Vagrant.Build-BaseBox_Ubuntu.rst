@@ -29,8 +29,8 @@ Procedure
 .. card:: Build-VM (Guest)
    
    1. install operating system
-   3. username: `vagrant`
-   4. password: `vagrant`
+   2. username: `vagrant`
+   3. password: `vagrant`
 
 .. card:: Post-Install (Guest)
    

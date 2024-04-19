@@ -1,5 +1,5 @@
-Vagrant Base Box (Ubuntu)
-=========================
+Vagrant.Build-Base Box (Ubuntu)
+===============================
 
 Prerequisites
 -------------

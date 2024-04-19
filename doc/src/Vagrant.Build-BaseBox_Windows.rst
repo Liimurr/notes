@@ -1,5 +1,5 @@
-Vagrant Base Box (Windows)
-==========================
+Vagrant.Build-Base Box (Windows)
+================================
 
 Prerequisites
 -------------

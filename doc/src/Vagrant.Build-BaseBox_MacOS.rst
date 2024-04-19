@@ -1,4 +1,4 @@
-Vagrant Base Box (MacOS)
+Vagrant.Build-Base Box (MacOS)
 ==========================
 
 Prerequisites

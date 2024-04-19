@@ -62,6 +62,7 @@ Procedure
 
       1. edit `/etc/ssh/sshd_config` (`sudo nano /etc/ssh/sshd_config`)
       2. set `UseDNS` to `no`
+      3. set `PubKeyAuthentication` to `yes`
 
 .. card:: Add-Files to VM Directory (Host):
 

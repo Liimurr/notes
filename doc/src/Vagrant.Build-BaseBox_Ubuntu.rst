@@ -12,6 +12,10 @@ Prerequisites
 
    https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
 
+.. card:: Vagrant VMWare Utility
+
+   Download and install Linux .deb package: https://developer.hashicorp.com/vagrant/install/vmware
+
 .. code-block:: shell
    :caption: Vagrant VMWare Plugin
 

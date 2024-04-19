@@ -58,7 +58,7 @@ Procedure
       VAGRANT_PUB_URL="https://raw.githubusercontent.com/hashicorp/vagrant/main/keys/vagrant.pub"
       wget -qO- "$VAGRANT_PUB_URL" | sudo tee -a ~/.ssh/authorized_keys >/dev/null
 
-   .. card:: Remove UseDNS
+   .. card:: Modify SSH Configuration
 
       1. edit `/etc/ssh/sshd_config` (`sudo nano /etc/ssh/sshd_config`)
       2. set `UseDNS` to `no`

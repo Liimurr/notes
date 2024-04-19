@@ -38,6 +38,12 @@ Procedure
    
       1. run `sudo visudo`
       2. add the following line: `vagrant ALL=(ALL) NOPASSWD: ALL`
+      3. remove any line that contains `requiretty`
+   
+   .. card:: Remove UseDNS
+
+      1. edit `/etc/ssh/sshd_config` (`sudo nano /etc/ssh/sshd_config`)
+      2. set `UseDNS` to `no`
 
    .. code-block:: shell
       :caption: SSH Configuration
@@ -76,12 +82,19 @@ Procedure
    :caption: Export-Base Box (Host)
 
    VM='ubuntu-22'
-   VMDir="~/development/assets/vms/vmware/$VM"
-   BaseBoxDir='~/development/assets/vagrant/base-boxes'
+   VMDir="$HOME/development/assets/vms/vmware/$VM"
+   BaseBoxDir="$HOME/development/assets/vagrant/base-boxes"
 
    cd $VMDir
    vmware-vdiskmanager -d ./$VM.vmdk
    vmware-vdiskmanager -k ./$VM.vmdk
-   cd $BaseBoxDir
-   tar -v -z -f ./$VM.box -C $VMDir -c *.nvram *.vmsd *.vmx *.vmxf *.vmdk metadata.json Vagrantfile
-   vagrant box add ./$VM.box --name=$VM
+   tar -v -z -f "$BaseBoxDir/$VM.box" -c $(find . -type f \( -name "*.nvram" -o -name "*.vmsd" -o -name "*.vmx" -o -name "*.vmxf" -o -name "*.vmdk" \)) metadata.json Vagrantfile
+   vagrant box add "$BaseBoxDir/$VM.box" --name=$VM
+
+.. code-block:: shell
+   :caption: Test-Base Box (Host)
+
+   VM='ubuntu-22'
+
+   vagrant init $VM
+   vagrant up

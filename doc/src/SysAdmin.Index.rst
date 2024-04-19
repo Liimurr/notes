@@ -9,6 +9,7 @@ SysAdmin
    Install-Vagrant.rst
    MacOS.Download-ISO.rst
    Vagrant.Build-Base Box.rst
+   Vagrant.Build-BaseBox_Ubuntu.rst
    Vagrant.Build-BaseBox_Windows.rst
    Vagrant.Build-BaseBox_MacOS.rst
    Vagrant.Export-Base Box.rst

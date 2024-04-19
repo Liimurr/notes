@@ -34,7 +34,7 @@ Procedure
 .. code-block:: shell
    :caption: copy vm to a new location
 
-   VM=macos-14.4.1
+   VM='macos-14'
 
    cd ~/Parallels
    mkdir ~/vagrant
@@ -51,7 +51,7 @@ Procedure
    .. code-block:: shell
       :caption: give the vm a better name
       
-      VM=macos-14.4.1
+      VM='macos-14'
 
       prlctl set 'macOS (1)' —name $VM
 
@@ -103,7 +103,7 @@ Procedure
 .. code-block:: shell
    :caption: Export-Base Box (Host)
 
-   VM=macos-14.4.1
+   VM='macos-14'
 
    tar cvzf $VM.box ./$VM.macvm  ./Vagrantfile ./metadata.json
    vagrant box add $VM.box --name $VM
@@ -111,7 +111,7 @@ Procedure
 .. code-block:: shell
    :caption: Test-Base Box (Host)
 
-   VM=macos-14.4.1
+   VM='macos-14'
 
    vagrant init $VM
    vagrant up

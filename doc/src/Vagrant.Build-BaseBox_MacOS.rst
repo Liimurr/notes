@@ -1,8 +1,10 @@
 Vagrant.Build-Base Box (MacOS)
-==========================
+==============================
 
 Prerequisites
 -------------
+
+Host OS: MacOS
 
 .. card:: Parallels 
 

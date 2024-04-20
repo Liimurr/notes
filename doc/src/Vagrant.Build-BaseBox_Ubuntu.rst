@@ -4,6 +4,8 @@ Vagrant.Build-Base Box (Ubuntu)
 Prerequisites
 -------------
 
+Host OS: Ubuntu 
+
 .. card:: Vagrant
 
    https://developer.hashicorp.com/vagrant/install

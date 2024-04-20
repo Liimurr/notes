@@ -11,9 +11,6 @@ SysAdmin
    Vagrant.Build-BaseBox_Ubuntu.rst
    Vagrant.Build-BaseBox_Windows.rst
    Vagrant.Build-BaseBox_MacOS.rst
-   Vagrant.Export-Base Box.rst
-   Vagrant.Initialize-VM.rst
-   Vagrant.Up-VM.rst
    Build-Ansible Control Node.rst
    Build-Ansible Agent Node.rst
    Test-Ansible.rst

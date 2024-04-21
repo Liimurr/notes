@@ -6,6 +6,9 @@ Prerequisites
 
 .. card:: Host OS: Ubuntu
 
+Procedure
+---------
+
 .. code-block:: shell
    :caption: install-bridged network
 
@@ -45,9 +48,6 @@ Prerequisites
       RUN apt-get update && apt-get install -y docker-ce-cli
       USER jenkins
       RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
-
-Procedure
----------
 
 .. code-block:: shell
    :caption: build jenkins image

@@ -29,6 +29,8 @@ Procedure
 
 .. card:: Install exact matching jdk version (Windows Agent)
 
+   https://www.openlogic.com/openjdk-downloads
+
 .. code-block:: powershell
    :caption: Install OpenSSH Server (Windows Agent)
 

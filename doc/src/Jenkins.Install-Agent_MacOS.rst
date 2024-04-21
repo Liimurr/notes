@@ -27,9 +27,11 @@ Procedure
    # Code
    sudo docker exec $containerID java --version
 
-.. card:: Install exact matching jdk version (MacOS Agent)
+.. card:: Install Exact Matching JDK Version (MacOS Agent)
 
-.. card:: Enable SSH server
+   https://www.openlogic.com/openjdk-downloads
+
+.. card:: Enable SSH Server (MacOS Agent)
 
    System Settings > General > Sharing > Enable Remote Login: ✅, and set `Full disk access to users` to allow `All Users`.
 
@@ -39,7 +41,7 @@ Procedure
 
    .. code-block:: shell
       :caption: uncomment the line: UseDNS no
-      
+
       sudo nano /etc/ssh/sshd_config
 
 .. code-block:: shell (Ubuntu Controller)

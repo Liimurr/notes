@@ -119,7 +119,7 @@ Procedure
       - `Host`: `< agent computer's ip address >`
    
    .. card::
-      :example:
+      :caption: example
 
       - `Node name`: `lm-windows-10`
       - `Root Directory`: `c:/development/assets/jenkins`

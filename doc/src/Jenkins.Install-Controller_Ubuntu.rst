@@ -1,5 +1,5 @@
-Jenkins.Install (Ubuntu)
-========================
+Jenkins.Install-Controller (Ubuntu)
+===================================
 
 Prerequisites
 -------------

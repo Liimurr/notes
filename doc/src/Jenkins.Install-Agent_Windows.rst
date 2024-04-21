@@ -1,5 +1,5 @@
-Jenkins.Install-Agent_Windows
-=============================
+Jenkins.Install-Agent (Windows)
+===============================
 
 Prerequisites
 -------------

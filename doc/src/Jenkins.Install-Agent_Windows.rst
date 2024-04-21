@@ -46,8 +46,7 @@ Procedure
    # Code
    sudo docker exec $containerID java --version
 
-.. code-block::
-   :caption: Install exact matching jdk version on Agent
+.. card:: Install exact matching jdk version on Agent
 
 .. code-block:: shell (Ubuntu Controller)
    :caption: Copy SSHKey to Agent
@@ -96,12 +95,12 @@ Procedure
    - Click on `Add Credentials`
    - Select `SSH Username with private key`
    - Fill in the following:
-     - `Username`: `LiamR`
-     - `Private Key`: `Enter directly`
-     - `Key`: `Copy the contents of the private key file`
-     - `Passphrase`: `Leave empty`
-     - `ID`: `LiamR`
-     - `Description`: `LiamR SSH Key`
+      - `Username`: `LiamR`
+      - `Private Key`: `Enter directly`
+      - `Key`: `Copy the contents of the private key file`
+      - `Passphrase`: `Leave empty`
+      - `ID`: `LiamR`
+      - `Description`: `LiamR SSH Key`
 
 .. card:: Create Agent Node [2]_
 
@@ -110,13 +109,13 @@ Procedure
    - Click on `Manage Nodes and Clouds`
    - Click on `New Node`
    - Fill in the following:
-     - `Node name`: `lm-windows-10`
-     - `Permanent Agent`: ✅
-     - `Remote root directory`: `c:/development/assets/jenkins`
-     - `Labels`: `windows windows-10 vagrant`
-     - `Usage`: `Only build jobs with label expressions matching this node`
-     - `Launch method`: `Launch agent via SSH`
-     - `Host`: `<Agent IP Address>`
+      - `Node name`: `lm-windows-10`
+      - `Permanent Agent`: ✅
+      - `Remote root directory`: `c:/development/assets/jenkins`
+      - `Labels`: `windows windows-10 vagrant`
+      - `Usage`: `Only build jobs with label expressions matching this node`
+      - `Launch method`: `Launch agent via SSH`
+      - `Host`: `<Agent IP Address>`
 
 See Also
 --------

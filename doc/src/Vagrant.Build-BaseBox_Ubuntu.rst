@@ -4,7 +4,7 @@ Vagrant.Build-Base Box (Ubuntu)
 Prerequisites
 -------------
 
-Host OS: Ubuntu 
+.. card:: Host OS: Ubuntu 
 
 .. card:: Vagrant
 

@@ -118,8 +118,7 @@ Procedure
       - `Host Key verification Strategy`: `Manually trusted key verification`
       - `Host`: `< agent computer's ip address >`
    
-   .. card::
-      :caption: example
+   .. card:: Example
 
       - `Node name`: `lm-windows-10`
       - `Root Directory`: `c:/development/assets/jenkins`

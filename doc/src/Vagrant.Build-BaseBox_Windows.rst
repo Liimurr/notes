@@ -4,7 +4,7 @@ Vagrant.Build-Base Box (Windows)
 Prerequisites
 -------------
 
-Host OS: Windows Pro or Enterprise (Windows Home does not support Hyper-V)
+.. card:: Host OS: Windows Pro or Enterprise (Windows Home does not support Hyper-V)
 
 .. card:: Vagrant
 

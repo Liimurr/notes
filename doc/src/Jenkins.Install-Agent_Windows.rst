@@ -35,16 +35,16 @@ Procedure
 .. code-block:: shell (Ubuntu Controller)
    :caption: List Running Containers
 
-   docker ps
+   sudo docker ps
 
 .. code-block::
    :caption: Check JDK Version
 
    # Data
-   containerID='f3f3b3b3b3b3'
+   containerID='11bf7d89b5d9'
 
    # Code
-   docker exec $containerID java --version
+   sudo docker exec $containerID java --version
 
 .. code-block::
    :caption: Install exact matching jdk version on Agent

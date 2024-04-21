@@ -109,13 +109,22 @@ Procedure
    - Click on `Manage Nodes and Clouds`
    - Click on `New Node`
    - Fill in the following:
-      - `Node name`: `lm-windows-10`
+      - `Node name`: `< node name >`
       - `Permanent Agent`: ✅
-      - `Remote root directory`: `c:/development/assets/jenkins`
-      - `Labels`: `windows windows-10 vagrant`
+      - `Remote root directory`: `< jenkins directory >`
+      - `Labels`: `< space delimited labels >`
       - `Usage`: `Only build jobs with label expressions matching this node`
       - `Launch method`: `Launch agent via SSH`
-      - `Host`: `<Agent IP Address>`
+      - `Host Key verification Strategy`: `Manually trusted key verification`
+      - `Host`: `< agent computer's ip address >`
+   
+   .. card::
+      :example:
+
+      - `Node name`: `lm-windows-10`
+      - `Root Directory`: `c:/development/assets/jenkins`
+      - `Labels`: `windows windows-10 vagrant`
+      - `Host`: `192.168.4.124`
 
 See Also
 --------

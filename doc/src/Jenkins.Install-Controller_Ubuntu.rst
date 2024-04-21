@@ -55,7 +55,7 @@ Procedure
    sudo docker build -t jenkins-blueocean-0.1.0:2.440.2-1 .
 
 .. code-block:: shell
-   :caption:
+   :caption: run jenkins image
 
    sudo docker run \
       --name jenkins-blueocean \

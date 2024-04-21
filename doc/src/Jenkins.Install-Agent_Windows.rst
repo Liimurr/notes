@@ -53,8 +53,8 @@ Procedure
    This speeds up ssh connections by disabling DNS lookups.
 
    .. code-block:: cmd
+      :caption: uncomment the line: UseDNS no
       
-      # uncomment the line: UseDNS no
       notepad.exe `%ProgramData%/ssh/sshd_config`
 
 .. code-block:: shell (Ubuntu Controller)

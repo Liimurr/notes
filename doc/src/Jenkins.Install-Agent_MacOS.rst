@@ -36,8 +36,10 @@ Procedure
 .. card:: Disable UseDNS (MacOS Agent)
    
    This speeds up ssh connections by disabling DNS lookups.
-   
+
    .. code-block:: shell
+      :caption: uncomment the line: UseDNS no
+      
       sudo nano /etc/ssh/sshd_config
 
 .. code-block:: shell (Ubuntu Controller)

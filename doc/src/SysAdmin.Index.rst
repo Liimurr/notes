@@ -13,6 +13,7 @@ SysAdmin
    Vagrant.Build-BaseBox_MacOS.rst
    Jenkins.Install-Controller_Ubuntu.rst
    Jenkins.Install-Agent_Windows.rst
+   Jenkins.Install-Agent_MacOS.rst
    Build-Ansible Control Node.rst
    Build-Ansible Agent Node.rst
    Test-Ansible.rst

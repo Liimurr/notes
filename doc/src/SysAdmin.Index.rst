@@ -4,10 +4,7 @@ SysAdmin
 .. toctree::
    :maxdepth: 1
    
-   Install-Powershell.rst
-   Install-WSL.rst
    Install-Vagrant.rst
-   MacOS.Download-ISO.rst
    Vagrant.Build-BaseBox_Ubuntu.rst
    Vagrant.Build-BaseBox_Windows.rst
    Vagrant.Build-BaseBox_MacOS.rst

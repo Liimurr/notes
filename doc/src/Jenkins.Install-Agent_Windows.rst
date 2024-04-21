@@ -56,13 +56,13 @@ Procedure
    user='LiamR' # password will be the microsoft account password
    address='192.168.4.124'
    sshKeyFile="$HOME/.ssh/jenkins.pub"
-
+   
    # Code
    remoteAlias="$user@$address"
    sshKey=$(cat $sshKeyFile)
-   encodedSSHKey=$(echo -n "$sshKey" | iconv -t utf-16le | base64 -w 0)
+   encodedSSHKey=$(echo -n "$sshKey" | base64 -w 0)
    read -r -d '' data <<- EOM
-     \$sshKey = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('$encodedSSHKey'))
+     \$sshKey = [System.Text.Encoding]::Utf8.GetString([System.Convert]::FromBase64String('$encodedSSHKey'))
    EOM
    read -r -d '' code <<- 'EOM'
      $authorizedKeysFile = "$env:ProgramData/ssh/administrators_authorized_keys"
@@ -83,5 +83,52 @@ Procedure
      $data
      $code
    EOM
-   encodedCommand=$(echo -n "$command" | iconv -t utf-16le | base64 -w 0)
+   encodedCommand=$(printf "$command" | iconv -f UTF-8 -t UTF-16LE | base64 -w 0)
    ssh $remoteAlias "powershell -encodedCommand $encodedCommand"
+
+.. card:: Create SSH Key Credential [1]_
+
+   - Go to Jenkins Dashboard
+   - Click on `Manage Jenkins`
+   - Click on `Manage Credentials`
+   - Click on `Jenkins`
+   - Click on `Global credentials (unrestricted)`
+   - Click on `Add Credentials`
+   - Select `SSH Username with private key`
+   - Fill in the following:
+     - `Username`: `LiamR`
+     - `Private Key`: `Enter directly`
+     - `Key`: `Copy the contents of the private key file`
+     - `Passphrase`: `Leave empty`
+     - `ID`: `LiamR`
+     - `Description`: `LiamR SSH Key`
+
+.. card:: Create Agent Node [2]_
+
+   - Go to Jenkins Dashboard
+   - Click on `Manage Jenkins`
+   - Click on `Manage Nodes and Clouds`
+   - Click on `New Node`
+   - Fill in the following:
+     - `Node name`: `lm-windows-10`
+     - `Permanent Agent`: ✅
+     - `Remote root directory`: `c:/development/assets/jenkins`
+     - `Labels`: `windows windows-10 vagrant`
+     - `Usage`: `Only build jobs with label expressions matching this node`
+     - `Launch method`: `Launch agent via SSH`
+     - `Host`: `<Agent IP Address>`
+
+See Also
+--------
+
+.. card::
+
+   **External Links**
+
+   - https://www.jenkins.io/doc/book/using/using-agents/
+   - https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=powershell
+
+   **Footnotes**
+
+   .. [1] `New SSH Credential <https://www.jenkins.io/doc/book/using/using-agents/#create-a-jenkins-ssh-credential>`_
+   .. [2] `New Agent Node <https://www.jenkins.io/doc/book/using/using-agents/#setup-up-the-agent1-on-jenkins>`_

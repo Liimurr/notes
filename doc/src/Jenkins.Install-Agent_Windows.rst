@@ -10,6 +10,25 @@ Prerequisites
 
 .. card:: Agent OS: Windows
 
+Procedure
+---------
+
+.. code-block:: shell (Ubuntu Controller)
+   :caption: List Running Containers
+
+   sudo docker ps
+
+.. code-block::
+   :caption: Check JDK Version (Ubuntu Controller)
+
+   # Data
+   containerID='11bf7d89b5d9'
+
+   # Code
+   sudo docker exec $containerID java --version
+
+.. card:: Install exact matching jdk version (Windows Agent)
+
 .. code-block:: powershell
    :caption: Install OpenSSH Server (Windows Agent)
 
@@ -29,24 +48,14 @@ Prerequisites
      Write-Output "Firewall rule 'OpenSSH-Server-In-TCP' has been created and exists."
    }
 
-Procedure
----------
+.. card:: Disable UseDNS (Windows Agent)
+   
+   This speeds up ssh connections by disabling DNS lookups.
 
-.. code-block:: shell (Ubuntu Controller)
-   :caption: List Running Containers
-
-   sudo docker ps
-
-.. code-block::
-   :caption: Check JDK Version (Ubuntu Controller)
-
-   # Data
-   containerID='11bf7d89b5d9'
-
-   # Code
-   sudo docker exec $containerID java --version
-
-.. card:: Install exact matching jdk version (Windows Agent)
+   .. code-block:: cmd
+      
+      # uncomment the line: UseDNS no
+      notepad.exe `%ProgramData%/ssh/sshd_config`
 
 .. code-block:: shell (Ubuntu Controller)
    :caption: Copy SSHKey to Agent

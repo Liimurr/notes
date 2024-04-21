@@ -71,6 +71,18 @@ Procedure
       --volume jenkins-docker-certs:/certs/client:ro \
       jenkins-blueocean-0.1.0:2.440.2-1
 
+Test
+----
+
+.. card:: Access Jenkins
+
+   - Open a web browser and navigate to `http://localhost:8080` to access Jenkins.
+
+.. code-block::
+   :caption: Access Docker Image
+
+   sudo docker exec -it jenkins-blueocean bash
+
 See Also
 --------
 

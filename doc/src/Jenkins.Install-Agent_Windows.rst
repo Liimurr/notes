@@ -121,7 +121,7 @@ Procedure
    .. card:: Example
 
       - `Node name`: `lm-windows-10`
-      - `Root Directory`: `c:/development/assets/jenkins`
+      - `Remote root directory`: `c:/development/assets/jenkins`
       - `Labels`: `windows windows-10 vagrant`
       - `Host`: `192.168.4.124`
 

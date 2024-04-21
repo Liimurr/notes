@@ -38,7 +38,7 @@ Procedure
    sudo docker ps
 
 .. code-block::
-   :caption: Check JDK Version
+   :caption: Check JDK Version (Ubuntu Controller)
 
    # Data
    containerID='11bf7d89b5d9'
@@ -46,7 +46,7 @@ Procedure
    # Code
    sudo docker exec $containerID java --version
 
-.. card:: Install exact matching jdk version on Agent
+.. card:: Install exact matching jdk version (Windows Agent)
 
 .. code-block:: shell (Ubuntu Controller)
    :caption: Copy SSHKey to Agent

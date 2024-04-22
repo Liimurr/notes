@@ -29,7 +29,11 @@ Procedure
    5. Build Triggers > Trigger builds remotely (e.g., from scripts): ✅
       - Authentication Token: < use token name from `Create Token` / `Step 3` >
 
+Test
+----
+
 .. code-block:: bash
+   :caption: Invoke Job with curl
    
    JOB_NAME='Test.CommandLineTrigger'
    API_TOKEN='1114e5b87bd94f533fef35f05b827f4b7e'

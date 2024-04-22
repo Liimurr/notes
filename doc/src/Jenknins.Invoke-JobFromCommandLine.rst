@@ -26,6 +26,8 @@ Procedure
    3. enter name: Test.CommandLineTrigger (or any name)
    4. restrict where this project can be run: ✅ 
       - enter space delimited labels to restrict where this project can be run (optional)
+   5. Build Triggers > Trigger builds remotely (e.g., from scripts): ✅
+      - Authentication Token: < use token name from `Create Token` / `Step 3` >
 
 .. code-block:: bash
    

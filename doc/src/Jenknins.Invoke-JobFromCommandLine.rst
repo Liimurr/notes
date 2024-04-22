@@ -11,7 +11,7 @@ Prerequisites
 Procedure
 ---------
 
-.. card:: Create Token
+.. card:: Create Token (Ubuntu Controller)
 
    1. goto http://localhost:8080/
    2. goto User > Configure > API Token
@@ -19,7 +19,7 @@ Procedure
    4. select generate
    5. copy and save token somewhere for later use
 
-.. card:: Create Job
+.. card:: Create Job (Ubuntu Controller)
 
    1. goto http://localhost:8080/
    2. select New Item > Freestyle project > OK
@@ -32,8 +32,8 @@ Procedure
 Test
 ----
 
-.. code-block:: bash
-   :caption: Invoke Job with curl
+.. code-block:: bash 
+   :caption: Invoke Job with curl (Ubuntu Controller)
    
    JOB_NAME='Test.CommandLineTrigger'
    API_TOKEN='1114e5b87bd94f533fef35f05b827f4b7e'

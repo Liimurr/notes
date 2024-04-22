@@ -40,7 +40,6 @@ Test
    USER='lm'
    URL='http://localhost:8080/'
 
-   # https://www.jenkins.io/doc/book/system-administration/authenticating-scripted-clients/#shell-with-wget
    curl -X POST -L --user $USER:$API_TOKEN \
       $URL/job/$JOB_NAME/build
 

@@ -57,7 +57,7 @@ Procedure
    .. code-block:: cmd
       :caption: uncomment the line: UseDNS no
       
-      notepad.exe `%ProgramData%/ssh/sshd_config`
+      notepad.exe "%ProgramData%/ssh/sshd_config"
 
 .. code-block:: shell (Ubuntu Controller)
    :caption: Copy SSHKey to Agent

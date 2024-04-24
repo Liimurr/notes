@@ -28,8 +28,8 @@ Procedure
      --volume jenkins-docker-certs:/certs/client \
      --volume jenkins-data:/var/jenkins_home \
      --publish 2376:2376 \
-     --storage-driver overlay2 \
-     docker:dind
+     docker:dind \
+     --storage-driver overlay2
 
 .. card:: Create docker file:
 
@@ -50,15 +50,25 @@ Procedure
       RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
 
 .. code-block:: shell
-   :caption: build jenkins image
+   :caption: build and run jenkins image
    
-   sudo docker build -t jenkins-blueocean-0.1.0:2.440.2-1 .
+   # data
+   IMAGE_NAME='myjenkins'
+   IMAGE_TAG='0.1.0'
+   CONTAINER_NAME='jenkins-docker'
 
-.. code-block:: shell
-   :caption: run jenkins image
+   # code
+   $IMAGE="$IMAGE_NAME:$IMAGE_TAG"
 
+   ## remove existing containers
+   sudo docker rm $CONTAINER_NAME -f
+   
+   ## build
+   sudo docker build -t $IMAGE .
+
+   ## run
    sudo docker run \
-      --name jenkins-blueocean \
+      --name $CONTAINER_NAME \
       --restart=on-failure \
       --detach \
       --network jenkins \
@@ -69,7 +79,7 @@ Procedure
       --publish 50000:50000 \
       --volume jenkins-data:/var/jenkins_home \
       --volume jenkins-docker-certs:/certs/client:ro \
-      jenkins-blueocean-0.1.0:2.440.2-1
+      $IMAGE
 
 Test
 ----

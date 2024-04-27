@@ -59,8 +59,8 @@ Procedure
       
       notepad.exe "%ProgramData%/ssh/sshd_config"
 
-.. code-block:: shell (Ubuntu Controller)
-   :caption: Copy SSHKey to Agent
+.. code-block:: shell 
+   :caption: Copy SSHKey to Agent (Ubuntu Controller)
 
    # Data
    user='LiamR' # password will be the microsoft account password

@@ -44,8 +44,8 @@ Procedure
 
       sudo nano /etc/ssh/sshd_config
 
-.. code-block:: shell (Ubuntu Controller)
-   :caption: Copy SSHKey to Agent
+.. code-block:: shell
+   :caption: Copy SSHKey to Agent (Ubuntu Controller)
 
    # Data
    user='lm' # password will be the microsoft account password

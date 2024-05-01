@@ -5,6 +5,7 @@ SysAdmin
    :maxdepth: 1
    
    Install-Vagrant.rst
+   Install-Vagrant-VMWare_Ubuntu.rst
    Vagrant.Build-BaseBox_Ubuntu.rst
    Vagrant.Build-BaseBox_Windows.rst
    Vagrant.Build-BaseBox_MacOS.rst

@@ -10,13 +10,12 @@ Procedure
 ---------
 
 .. code-block:: shell
-   :caption: install-bridged network
+   :caption: install.sh 
 
+   # install-bridged network
    sudo docker network create jenkins
 
-.. code-block:: shell
-   :caption: install-jenkins docker image
-
+   # install-jenkins docker image
    sudo docker run \
      --name jenkins-docker \
      --rm \
@@ -50,7 +49,7 @@ Procedure
       RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
 
 .. code-block:: shell
-   :caption: build and run jenkins image
+   :caption: run.sh
    
    # data
    IMAGE_NAME='myjenkins'
@@ -58,7 +57,7 @@ Procedure
    CONTAINER_NAME='jenkins-docker'
 
    # code
-   $IMAGE="$IMAGE_NAME:$IMAGE_TAG"
+   IMAGE="$IMAGE_NAME:$IMAGE_TAG"
 
    ## remove existing containers
    sudo docker rm $CONTAINER_NAME -f

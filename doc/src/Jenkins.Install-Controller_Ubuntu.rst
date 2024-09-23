@@ -83,17 +83,16 @@ Procedure
 Test
 ----
 .. card:: Jenkins Setup Instructions
-
-    - Get initial password:
+   :caption: Get initial password
     
-        .. code-block:: shell
-           :caption: 
-           
-           # Access Docker Image
-           sudo docker exec -it jenkins-docker bash
-
-           # Get Initial Password
-           cat /var/jenkins_home/secrets/initialAdminPassword
+   .. code-block:: shell
+     :caption: 
+     
+     # Access Docker Image
+     sudo docker exec -it jenkins-docker bash
+   
+     # Get Initial Password
+     cat /var/jenkins_home/secrets/initialAdminPassword
 
     - Go to `localhost:8080`
     - Enter initial password

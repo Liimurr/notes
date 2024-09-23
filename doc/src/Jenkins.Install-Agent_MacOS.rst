@@ -72,7 +72,7 @@ Procedure
       - `Description`: `lm generic SSH Key`
       - `Username`: `lm`
       - `Private Key`: `Enter directly`
-      - `Key`: `Copy the contents of the private key file`
+      - `Key`: `Copy the contents of the private key file ($HOME/.ssh/jenkins)` 
       - `Passphrase`: `(Leave empty)`
 
 .. card:: Create Agent Node [2]_

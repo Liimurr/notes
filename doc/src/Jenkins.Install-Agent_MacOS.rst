@@ -51,8 +51,11 @@ Procedure
    user='lm' # password will be the microsoft account password
    address='192.168.4.29'
    sshKeyFile="$HOME/.ssh/jenkins.pub"
-   
+
    # Code
+   ## (optional) create controller public key if it doesn't already exist
+   ssh-keygen -t ed25519 -f /home/lm/.ssh/jenkins
+   ## copy controller public key to agent's authorized keys
    ssh-copy-id -i $sshKeyFile $user@$address
 
 .. card:: Create SSH Key Credential [1]_

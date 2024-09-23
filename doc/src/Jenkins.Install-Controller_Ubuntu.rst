@@ -84,10 +84,9 @@ Test
 ----
 
 .. card:: Jenkins Setup Instructions
-   :caption: Get initial password
     
    .. code-block:: shell
-      :caption: 
+      :caption: Get initial password
      
       # Access Docker Image
       sudo docker exec -it jenkins-docker bash

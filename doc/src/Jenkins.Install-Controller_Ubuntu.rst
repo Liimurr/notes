@@ -94,8 +94,8 @@ Test
       # Get Initial Password
       cat /var/jenkins_home/secrets/initialAdminPassword
 
-      - Go to `localhost:8080`
-      - Enter initial password
+   - Go to `localhost:8080`
+   - Enter initial password
 
 See Also
 --------

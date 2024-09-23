@@ -65,12 +65,12 @@ Procedure
    - Click on `Add Credentials`
    - Select `SSH Username with private key`
    - Fill in the following:
+      - `ID`: `lm-ssh-key`
+      - `Description`: `lm generic SSH Key`
       - `Username`: `lm`
       - `Private Key`: `Enter directly`
       - `Key`: `Copy the contents of the private key file`
       - `Passphrase`: `(Leave empty)`
-      - `ID`: `lm-ssh-key`
-      - `Description`: `lm generic SSH Key`
 
 .. card:: Create Agent Node [2]_
 

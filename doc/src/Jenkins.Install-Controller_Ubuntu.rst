@@ -82,15 +82,21 @@ Procedure
 
 Test
 ----
+.. card:: Jenkins Setup Instructions
 
-.. card:: Access Jenkins
+    - Get initial password:
+    
+        .. code-block:: bash
+           :caption: 
+           
+           # Access Docker Image
+           sudo docker exec -it jenkins-docker bash
 
-   - Open a web browser and navigate to `http://localhost:8080` to access Jenkins.
+           # Get Initial Password
+           cat /var/jenkins_home/secrets/initialAdminPassword
 
-.. code-block::
-   :caption: Access Docker Image
-
-   sudo docker exec -it jenkins-blueocean bash
+    - Go to `localhost:8080`
+    - Enter initial password
 
 See Also
 --------

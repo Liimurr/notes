@@ -79,7 +79,7 @@ Procedure
 
    - Go to Jenkins Dashboard
    - Click on `Manage Jenkins`
-   - Click on `Manage Nodes and Clouds`
+   - Click on `Nodes`
    - Click on `New Node`
    - Fill in the following:
       - `Node name`: `< node name >`

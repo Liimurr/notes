@@ -60,7 +60,7 @@ Procedure
    - Go to Jenkins Dashboard
    - Click on `Manage Jenkins`
    - Click on `Manage Credentials`
-   - Click on `Jenkins`
+   - Click on `System`
    - Click on `Global credentials (unrestricted)`
    - Click on `Add Credentials`
    - Select `SSH Username with private key`

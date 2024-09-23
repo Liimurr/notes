@@ -86,7 +86,7 @@ Test
 
     - Get initial password:
     
-        .. code-block:: bash
+        .. code-block:: shell
            :caption: 
            
            # Access Docker Image

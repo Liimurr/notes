@@ -87,16 +87,16 @@ Test
    :caption: Get initial password
     
    .. code-block:: shell
-     :caption: 
+      :caption: 
      
-     # Access Docker Image
-     sudo docker exec -it jenkins-docker bash
+      # Access Docker Image
+      sudo docker exec -it jenkins-docker bash
    
-     # Get Initial Password
-     cat /var/jenkins_home/secrets/initialAdminPassword
+      # Get Initial Password
+      cat /var/jenkins_home/secrets/initialAdminPassword
 
-    - Go to `localhost:8080`
-    - Enter initial password
+      - Go to `localhost:8080`
+      - Enter initial password
 
 See Also
 --------

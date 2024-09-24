@@ -18,3 +18,4 @@ SysAdmin
    Test-Ansible.rst
    Jenkins.Index.rst
    Add-Submodule to Github Actions Checkout.rst
+   Enable-WakeOnLAN_Ubuntu.rst
